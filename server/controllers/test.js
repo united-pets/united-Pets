@@ -1,8 +1,8 @@
 var db = require("../database/index.js")
 module.exports={
     test:(req,res)=>{
-        db.query(
+            console.log(req.session)
             res.send("hellooo")
-        )
+    
     }
 }
