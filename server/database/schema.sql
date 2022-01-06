@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `firstName` VARCHAR(30) NULL,
   `lastName` VARCHAR(20) NULL,
   `email` VARCHAR(30) NULL,
-  `phoneNumber` VARCHAR(8) NULL,
+  `phoneNumber` VARCHAR(20) NULL,
   `password` VARCHAR(45) NULL,
   `adress` VARCHAR(255) NULL,
   `imageUrl` VARCHAR(255) NULL,
