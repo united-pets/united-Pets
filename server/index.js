@@ -11,9 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 var test = require('./routers/test.js');
-
+var signup = require('./routers/signup.js')
 app.use("/",test)
-
+app.use("/",signup)
 
 
 
