@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 
     ProfileComponent,
     UpdateProfileComponent,
+    SignupComponent,
     
   ],
   imports: [
