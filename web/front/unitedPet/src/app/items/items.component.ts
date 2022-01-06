@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { item } from '../feed';
 
 @Component({
   selector: 'app-items',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-
-  constructor() { }
+item = item
+  constructor() {
+  
+   }
 
   ngOnInit(): void {
   }

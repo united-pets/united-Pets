@@ -1,5 +1,5 @@
 var express = require("express");
 var router = express.Router()
-const test = require("../controllers/test.js")
-router.route("/").get(test.test)
+const item = require("../controllers/items.js")
+router.route("/").get(item.getAll)
 module.exports = router

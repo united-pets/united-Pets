@@ -1,5 +1,5 @@
 const express = require("express");
-const Sequelize = require("sequelize")
+
 let app=express() ;
 const PORT=3000
 var cors = require('cors')
@@ -11,8 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 var test = require('./routers/test.js');
+const items = require("./controllers/items.js");
 
-app.use("/",test)
+app.use("/",items)
 
 
 
