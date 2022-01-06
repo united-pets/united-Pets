@@ -1,5 +1,4 @@
 const express = require("express");
-
 let app=express() ;
 const PORT=3000
 var cors = require('cors')
@@ -11,8 +10,18 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-  
-
+app.post("/updateProfile",(req,res)=>{
+    console.log(req.body);
+ db.query("update users set firstName=?,lastName=?,email=?,phoneNumber=? , adress=? , imageUrl=?  where  iduser='1'",
+  [req.body[0].firstName,req.body[0].lastName , req.body[0].email,req.body[0].phoneNumber,req.body[0].adress,req.body[0].imageUrl],(err,result)=>{
+     if(err){
+         console.log(err);
+     }else 
+     {
+         console.log(res);
+     }
+ })
+})
 
 
 
