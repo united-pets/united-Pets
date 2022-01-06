@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
     ProfileComponent,
     UpdateProfileComponent,
     SignupComponent,
+    LoginComponent,
     
   ],
   imports: [
