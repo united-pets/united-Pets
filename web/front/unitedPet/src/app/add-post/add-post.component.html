@@ -38,7 +38,7 @@
           <label for="formGroupExampleInput" name="AnimalName"> Pet Name</label>
           <input
             type="text"
-            [(ngModel)]="AnimalName"
+           (change)="name($event)"
             class="form-control"
             id="formGroupExampleInput"
             placeholder="enter the Pet Name"
@@ -50,13 +50,14 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            [(ngModel)]="AnimalDescription"
+            (change)="description($event)"
           ></textarea>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput"> Localisation</label>
           <input
-            type="text"
+            type="localisation"
+            (change)="localisation($event)"
             class="form-control"
             id="formGroupExampleInput"
             placeholder="enter the Localisation of the area of the lost pet"
@@ -68,11 +69,15 @@
           <label for="exampleFormControlFile1">Upload your pet image </label>
           <input
             type="file"
+            (change)="image($event)"
             class="form-control-file"
             id="exampleFormControlFile1"
           />
         </div>
       </form>
     </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary btn-block" (click)=" Addpost()">Add post </button>
   </div>
 </form>
