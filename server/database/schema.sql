@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `adress` VARCHAR(255) NULL,
   `imageUrl` VARCHAR(255) NULL,
   `typeofservice` VARCHAR(45) NULL,
-  PRIMARY KEY (`iduser`))
+  PRIMARY KEY (`iduser`)
+)
 ENGINE = InnoDB;
 
 

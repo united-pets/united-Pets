@@ -7,13 +7,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: database,
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  }
+  database: database
+
 
 });
 
