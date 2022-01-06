@@ -13,6 +13,9 @@ export class UpdateProfileComponent implements OnInit {
   adress:String= ''
   imageUrl:String= ''
   profile=profile
+  test : string= ''
+
+  
   constructor() {  }
 
   ngOnInit(): void {

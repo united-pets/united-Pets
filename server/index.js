@@ -11,9 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-  var login=require("./routers/login")
+  
 
-app.use('/api/auth',login)
+
 
 
 
