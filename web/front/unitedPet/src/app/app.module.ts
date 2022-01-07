@@ -4,19 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { AngularFireModule } from '@angular/fire/compat/';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-// import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-// import { AngularFireModule } from '@angular/fire';
-// import { AngularFireDatabaseModule } from '@angular/fire/database';
-// import { AngularFireStorageModule } from '@angular/fire/storage';
-// import { environment } from '../environments/environment';
 
+import { AngularFireModule } from '@angular/fire/compat/';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsComponent } from './items/items.component';
 ;
 import { ProfileComponent } from './profile/profile.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AddPostComponent } from './add-post/add-post.component';
@@ -24,10 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
-import { AngularFireModule } from '@angular/fire/compat/';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -53,6 +46,19 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    AngularFirestoreModule ,
+       AngularFireModule.initializeApp({
+        apiKey: "AIzaSyBMiLuyb1jsTJ7EqmGt0TJOy9qDndfFLec",
+        authDomain: "copper-harbor-331713.firebaseapp.com",
+        projectId: "copper-harbor-331713",
+        storageBucket: "copper-harbor-331713.appspot.com",
+        messagingSenderId: "1032981236332",
+        appId: "1:1032981236332:web:ef77379dc4fcb214732649",
+        measurementId: "G-JHRVKT56RF"
+      }),
+        AngularFireDatabaseModule,
+        AngularFireStorageModule,
+ 
     FormsModule,
     HttpClientModule,
     AngularFirestoreModule,
