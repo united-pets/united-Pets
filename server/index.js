@@ -13,10 +13,15 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 // var test = require('./routers/test.js');
+var items = require("./routers/item.js");
+
+
+// var test = require('./routers/test.js');
 var signup = require('./routers/signup.js')
 var login = require('./routers/login.js')
 
 // app.use("/",test)
+app.use("/items",items)
 app.use("/",signup)
 app.use("/",login)
 //session 
