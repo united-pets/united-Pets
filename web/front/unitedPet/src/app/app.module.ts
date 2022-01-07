@@ -9,6 +9,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { AddPostComponent } from './add-post/add-post.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
     UpdateProfileComponent,
     AddPostComponent,
     SignupComponent,
+    LoginComponent,
     
   ],
   imports: [
