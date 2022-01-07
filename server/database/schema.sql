@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `AnimalName` VARCHAR(20) NULL DEFAULT NULL,
   `AnimalDescription` VARCHAR(255) NULL DEFAULT NULL,
   `AnimalLocalisation` VARCHAR(20) NULL DEFAULT NULL,
-  `user_iduser` INT NOT NULL,
+  `user_iduser` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`idPosts`, `user_iduser`),
   INDEX `fk_Posts_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_Posts_user1`
