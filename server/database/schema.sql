@@ -11,9 +11,15 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+<<<<<<< HEAD
 DROP DATABASE `mydb`;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
+=======
+DROP database IF EXISTS `mydb` ;
+CREATE DATABASE `mydb`;
+USE `mydb`;
+>>>>>>> 8513335c3db982fbd0ebc4b174c936bb6f0e572b
 
 -- -----------------------------------------------------
 -- Table `mydb`.`users`
@@ -116,8 +122,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `mydb`.`comments`
 -- -----------------------------------------------------
