@@ -35,6 +35,7 @@ export class UpdateProfileComponent implements OnInit {
 
   uplode(event : any ){
   this.path = event.target.files[0]
+  
   console.log(this.path);
 
   }
@@ -45,8 +46,10 @@ export class UpdateProfileComponent implements OnInit {
     .then((response) => {
       console.log('response :', response);
       response.ref.getDownloadURL().then((res) => {
-        console.log('downloadUrl :', res);
+        console.log(res);
         this.path = res;
+        this.imageUrl=res
+        console.log("hhh",this.imageUrl)
       });
     });
 }
