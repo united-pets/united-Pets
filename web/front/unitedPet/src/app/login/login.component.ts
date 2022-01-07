@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
       password:this.password
     }
     console.log(user)
-    this.http.post('http://localhost:3000/login',user ).subscribe({next:data=>{
-      console.log(data)
-      
+    this.http.post('http://localhost:3000/login',user ).subscribe({next:Response=>{
+      console.log(Response)
+      localStorage.setItem("session", JSON.stringify(Response))
     },
     error:error=>{
       console.error(error)
