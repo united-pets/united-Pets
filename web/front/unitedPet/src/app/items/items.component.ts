@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-item = []
+// item = []
   constructor(
     private http: HttpClient
   ) {
@@ -20,7 +20,7 @@ item = []
     this.http.get<any>(`http://localhost:3000/items/items`)
     .subscribe({
       next: Response => {
-         this.item = Response;
+        //  this.item = Response;
         console.log("itemsssss", Response);
       },
       error: error => console.log('errorrr',error)

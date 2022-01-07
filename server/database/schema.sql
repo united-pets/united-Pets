@@ -116,8 +116,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `mydb`.`comments`
 -- -----------------------------------------------------
