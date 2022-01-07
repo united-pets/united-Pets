@@ -69,10 +69,11 @@
           <label for="exampleFormControlFile1">Upload your pet image </label>
           <input
             type="file"
-            (change)="image($event)"
+            (change)="upload($event)"
             class="form-control-file"
             id="exampleFormControlFile1"
           />
+          <button (click)="uploadImage()">upload my image </button>
         </div>
       </form>
     </div>
