@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
+  iduser : Number = 0
   firstName: String = ''
   lastName:String = ''
   email:String = ''
@@ -18,8 +19,8 @@ export class UpdateProfileComponent implements OnInit {
 
 
 
-  constructor(private http : HttpClient, ) {  
-    //  private afStorage:AngularFireStorage
+  constructor(private http : HttpClient) {  
+    
   }
 
 
@@ -43,8 +44,25 @@ export class UpdateProfileComponent implements OnInit {
   //   })
   // })
   // }
+  getstudentData() {
+    var iduser = this.iduser;
+    this.http
+      .get<any>(`http://localhost:3000/editProfile/${iduser}`)
 
+      .subscribe((result) => {
+        console.log('result :', result);
+        this.firstName = result.firstName;
+        this.lastName = result.lastName;
+        this.email = result.email;
+        this.adress = result.adress;
+        this.imageUrl = result.imageUrl;
+      });
+  }
   ngOnInit(): void {
+    let y = localStorage.getItem('session') as string;
+    var userData = JSON.parse(y)[0];
+    this.iduser = userData.iduser;
+    this.getstudentData();
   }
 
 }

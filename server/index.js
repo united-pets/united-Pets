@@ -19,11 +19,14 @@ var items = require("./routers/item.js");
 // var test = require('./routers/test.js');
 var signup = require('./routers/signup.js')
 var login = require('./routers/login.js')
+var updateProfile = require('./routers/updateProfile.js')
 
 // app.use("/",test)
 app.use("/items",items)
 app.use("/",signup)
 app.use("/",login)
+app.use("/",updateProfile)
+
 //session 
 // var options = {
 // 	host: 'localhost',
