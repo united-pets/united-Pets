@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 module.exports={
     test:(req,res)=>{
-        db.query(
+            console.log(req.session)
             res.send("hellooo")
-        )
+    
     }
 }
 

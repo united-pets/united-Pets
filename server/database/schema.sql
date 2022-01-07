@@ -1,6 +1,5 @@
+-- MySQL Workbench Forward Engineering
 
-
--- " to run this file type this command  "mysql -u root -p  < server/database/schema.sql"
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -12,6 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -19,17 +19,16 @@ USE `mydb` ;
 -- Table `mydb`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`users` (
-  `iduser` INT NOT NULL,
-  `firstName` VARCHAR(30) NULL,
-  `lastName` VARCHAR(20) NULL,
-  `email` VARCHAR(30) NULL,
-  `phoneNumber` VARCHAR(20) NULL,
-  `password` VARCHAR(45) NULL,
-  `adress` VARCHAR(255) NULL,
-  `imageUrl` VARCHAR(255) NULL,
-  `typeofservice` VARCHAR(45) NULL,
-  PRIMARY KEY (`iduser`)
-)
+  `iduser` INT NOT NULL AUTO_INCREMENT,
+  `firstName` VARCHAR(30) NULL DEFAULT NULL,
+  `lastName` VARCHAR(20) NULL DEFAULT NULL,
+  `email` VARCHAR(30) NULL DEFAULT NULL,
+  `phoneNumber` VARCHAR(8) NULL DEFAULT NULL,
+  `password` VARCHAR(255) NULL DEFAULT NULL,
+  `adress` VARCHAR(255) NULL DEFAULT NULL,
+  `imageUrl` VARCHAR(255) NULL DEFAULT NULL,
+  `typeofservice` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`iduser`))
 ENGINE = InnoDB;
 
 
@@ -37,12 +36,12 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Stores`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Stores` (
-  `idStore` INT NOT NULL,
-  `StoreName` VARCHAR(20) NULL,
-  `StoreLogo` VARCHAR(255) NULL,
-  `taxRegistrationNumber` VARCHAR(20) NULL,
+  `idStore` INT NOT NULL AUTO_INCREMENT,
+  `StoreName` VARCHAR(20) NULL DEFAULT NULL,
+  `StoreLogo` VARCHAR(255) NULL DEFAULT NULL,
+  `taxRegistrationNumber` VARCHAR(20) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
-  `taxRegistrationNumbzerImage` VARCHAR(255) NULL,
+  `taxRegistrationNumbzerImage` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`idStore`, `user_iduser`),
   INDEX `fk_Store_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_Store_user1`
@@ -57,9 +56,9 @@ ENGINE = InnoDB;
 -- Table `mydb`.`sales`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`sales` (
-  `idsales` INT NOT NULL,
+  `idsales` INT NOT NULL AUTO_INCREMENT,
   `user_iduser` INT NOT NULL,
-  `salescol` VARCHAR(45) NULL,
+  `salescol` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idsales`, `user_iduser`),
   INDEX `fk_sales_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_sales_user1`
@@ -74,13 +73,13 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Items`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
-  `idItems` INT NOT NULL,
-  `ItemName` VARCHAR(20) NULL,
-  `ItemImage` VARCHAR(255) NULL,
-  `ItemPrice` VARCHAR(5) NULL,
-  `ItemDescription` VARCHAR(255) NULL,
-  `ItemCategory` VARCHAR(20) NULL,
-  `quantity` INT NULL,
+  `idItems` INT NOT NULL AUTO_INCREMENT,
+  `ItemName` VARCHAR(20) NULL DEFAULT NULL,
+  `ItemImage` VARCHAR(255) NULL DEFAULT NULL,
+  `ItemPrice` VARCHAR(5) NULL DEFAULT NULL,
+  `ItemDescription` VARCHAR(255) NULL DEFAULT NULL,
+  `ItemCategory` VARCHAR(20) NULL DEFAULT NULL,
+  `quantity` INT NULL DEFAULT NULL,
   `Store_idStore` INT NOT NULL,
   `sales_idsales` INT NOT NULL,
   PRIMARY KEY (`idItems`, `Store_idStore`, `sales_idsales`),
@@ -95,8 +94,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
     FOREIGN KEY (`sales_idsales`)
     REFERENCES `mydb`.`sales` (`idsales`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-)
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -104,11 +102,11 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Posts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
-  `idPosts` INT NOT NULL,
-  `AnimalImage` VARCHAR(255) NULL,
-  `AnimalName` VARCHAR(20) NULL,
-  `AnimalDescription` VARCHAR(255) NULL,
-  `AnimalLocalisation` VARCHAR(20) NULL,
+  `idPosts` INT NOT NULL AUTO_INCREMENT,
+  `AnimalImage` VARCHAR(255) NULL DEFAULT NULL,
+  `AnimalName` VARCHAR(20) NULL DEFAULT NULL,
+  `AnimalDescription` VARCHAR(255) NULL DEFAULT NULL,
+  `AnimalLocalisation` VARCHAR(20) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `user_iduser`),
   INDEX `fk_Posts_user1_idx` (`user_iduser` ASC) VISIBLE,
@@ -124,11 +122,11 @@ ENGINE = InnoDB;
 -- Table `mydb`.`comments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`comments` (
-  `idcomments` INT NOT NULL,
-  `animalName` VARCHAR(15) NULL,
-  `race` VARCHAR(10) NULL,
-  `color` VARCHAR(10) NULL,
-  `localisation` VARCHAR(30) NULL,
+  `idcomments` INT NOT NULL AUTO_INCREMENT,
+  `animalName` VARCHAR(15) NULL DEFAULT NULL,
+  `race` VARCHAR(10) NULL DEFAULT NULL,
+  `color` VARCHAR(10) NULL DEFAULT NULL,
+  `localisation` VARCHAR(30) NULL DEFAULT NULL,
   `Posts_idPosts` INT NOT NULL,
   `user_iduser` INT NOT NULL,
   `comments_idcomments` INT NOT NULL,
@@ -160,9 +158,9 @@ ENGINE = InnoDB;
 -- Table `mydb`.`admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`admin` (
-  `idtable1` INT NOT NULL,
-  `username` VARCHAR(20) NULL,
-  `password` VARCHAR(20) NULL,
+  `idtable1` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(20) NULL DEFAULT NULL,
+  `password` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`idtable1`))
 ENGINE = InnoDB;
 
@@ -171,12 +169,12 @@ ENGINE = InnoDB;
 -- Table `mydb`.`pets`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`pets` (
-  `idpet` INT NOT NULL,
-  `petsName` VARCHAR(10) NULL,
-  `age` VARCHAR(2) NULL,
-  `color` VARCHAR(10) NULL,
-  `race` VARCHAR(15) NULL,
-  `petImgUrl` VARCHAR(255) NULL,
+  `idpet` INT NOT NULL AUTO_INCREMENT,
+  `petsName` VARCHAR(10) NULL DEFAULT NULL,
+  `age` VARCHAR(2) NULL DEFAULT NULL,
+  `color` VARCHAR(10) NULL DEFAULT NULL,
+  `race` VARCHAR(15) NULL DEFAULT NULL,
+  `petImgUrl` VARCHAR(255) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
   `Posts_idPosts` INT NOT NULL,
   `Posts_user_iduser` INT NOT NULL,
@@ -200,7 +198,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`veteranary`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`veteranary` (
-  `idveteranary` INT NOT NULL,
+  `idveteranary` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idveteranary`))
 ENGINE = InnoDB;
 
