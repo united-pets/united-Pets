@@ -3,21 +3,26 @@ module.exports = {
     PostOne: (req, res) => {
             console.log(req.body);
             db.query(
-                "insert into Posts (content ,imgUrl,title,place,ownerId) values(?,?,?,?,?)",
-                [req.body.content, req.body.imgUrl, req.body.title, req.body.place, req.body.ownerId],
-                (err, result) => {
+              "insert into Posts ( AnimalName,AnimalDescription,AnimalLocalisation,AnimalImage) values(?,?,?,?)",
+              [
+                req.body.AnimalName,
+                req.body.AnimalDescription,
+                req.body.AnimalLocalisation,
+                req.body.AnimalImage,
+              ],
+              (err, result) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  db.query("select * from Posts", (err, result) => {
                     if (err) {
-                        console.log(err);
+                      console.log(err);
                     } else {
-                        db.query("select * from Posts", (err, result) => {
-                            if (err) {
-                                console.log(err);
-                            } else {
-                                res.send(result);
-                            }
-                        });
+                      res.send(result);
                     }
+                  });
                 }
+              }
             );
         },
 
@@ -36,7 +41,7 @@ module.exports = {
     GetSome: (req, res) => {
         db.query(
             "select * from Posts where place= ?",
-            [req.params.searchedPlace],
+            [req.params.search],
             (err, result) => {
                 if (err) {
                     console.log(err);
