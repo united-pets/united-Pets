@@ -15,6 +15,9 @@ const items = require("./controllers/items.js");
 
 app.use("/",items)
 
+var signup = require('./routers/signup.js')
+app.use("/",test)
+app.use("/",signup)
 
 
 
