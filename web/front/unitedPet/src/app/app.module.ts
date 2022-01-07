@@ -5,8 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
+// import { AngularFireModule } from '@angular/fire/compat/';
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+// import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+// import { AngularFireModule } from '@angular/fire';
+// import { AngularFireDatabaseModule } from '@angular/fire/database';
+// import { AngularFireStorageModule } from '@angular/fire/storage';
+// import { environment } from '../environments/environment';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
@@ -19,8 +25,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     
-    
-
     ProfileComponent,
     UpdateProfileComponent,
     SignupComponent,
@@ -32,7 +36,14 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule,
+    // AngularFireStorageModule
+    // AngularFirestoreModule ,
+    //    AngularFireModule.initializeApp(environment.firebase),
+    //     AngularFireDatabaseModule,
+    //     AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

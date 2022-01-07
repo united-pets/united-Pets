@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { profile } from '../profile';
 import { HttpClient } from '@angular/common/http';
-
+// import { AngularFireStorage } from '@angular/fire/compat/storage';
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
@@ -18,7 +18,9 @@ export class UpdateProfileComponent implements OnInit {
 
 
 
-  constructor(private http : HttpClient) {  }
+  constructor(private http : HttpClient, ) {  
+    //  private afStorage:AngularFireStorage
+  }
 
 
    update() {
@@ -28,6 +30,19 @@ export class UpdateProfileComponent implements OnInit {
     })
     
   }
+
+  // uploadThumbnail(event: Event) {    
+  //   const target = event.target as HTMLInputElement;
+  //       const files = target.files as FileList;
+  //       console.log('files', files[0])
+  // this.afStorage.upload('image'+Math.random()+files[0].name, files[0]).then((response )=>{
+  //   console.log('response :', response)
+  //    response.ref.getDownloadURL().then((res)=>{
+  //     console.log('downloadUrl :', res)
+  //     this.thumbnail=res
+  //   })
+  // })
+  // }
 
   ngOnInit(): void {
   }
