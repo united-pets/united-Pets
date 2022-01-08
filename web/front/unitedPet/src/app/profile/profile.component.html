@@ -5,8 +5,7 @@
               <img class="rounded-circle mt-5" width="150px" src={{profile.imageUrl}}>
               <span class="font-weight-bold">{{state.firstName}} {{state.lastName}}</span>
               <span class="text-black-50">{{state.email}}</span>
-              <span>
-                   </span>
+              <span class="text-black-50">{{state.phoneNumber}}</span>
             </div>
       </div>
       <div class="col-md-5 border-right">
@@ -44,7 +43,11 @@
       </div>
       <div class="col-md-4">
           <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience"><span>create store</span><span class="border px-3 p-1 add-experience" [routerLink]="['/form-store']"><i class="fa fa-plus"></i>&nbsp;create Now</span></div><br>
+              <div class="d-flex justify-content-between align-items-center experience">
+                  <span>create store</span><span class="border px-3 p-1 add-experience" [routerLink]="['/form-store']">
+                      <i class="fa fa-plus"></i>&nbsp;create Now
+                    </span>
+                </div><br>
           </div>
       </div>
   </div>

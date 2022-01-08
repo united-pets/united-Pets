@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { profile } from '../profile';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
@@ -23,7 +25,12 @@ export class UpdateProfileComponent implements OnInit {
   
 
 
-  constructor(private http : HttpClient,private af:AngularFireStorage) {  }
+  constructor(private http : HttpClient,private af:AngularFireStorage, private router : Router ) { 
+    this.state = this.router.getCurrentNavigation()?.extras.state
+
+   }
+  state: any = {}
+
     
 
 
@@ -61,10 +68,12 @@ export class UpdateProfileComponent implements OnInit {
   //     });
   // }
   ngOnInit(): void {
-    let y = localStorage.getItem('session') as string;
-    this.iduser = JSON.parse(y)[0].iduser;
-    console.log(y)
-    // this.getuserData();
+    // let y = localStorage.getItem('session') as string;
+    // this.iduser = JSON.parse(y)[0].iduser;
+    // console.log(y)
+    // // this.getuserData();
+  this.state= JSON.parse(localStorage.getItem('session')||'');
+
   }
 
       
