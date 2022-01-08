@@ -58,7 +58,7 @@ export class UpdateProfileComponent implements OnInit {
 }
   // getuserData() {
   //    var iduser = this.iduser;
-  //   this.http.put(`http://localhost:3000/user/:${this.iduser}`).subscribe( (result) => {
+  //   this.http.put(`http://localhost:3000/user/:${.iduser}`).subscribe( (result) => {
   //         this.firstName = this.firstName;
   //         this.lastName = this.lastName;
   //         this.email = this.email;
@@ -67,11 +67,33 @@ export class UpdateProfileComponent implements OnInit {
   //         console.log('result :', result);
   //     });
   // }
+
+  updateProfile() {
+    const data = {
+      firstName: this.firstName, // or ....
+      lastName: this.lastName, // or ....
+      email: this.email,
+      phoneNumber : this.phoneNumber,
+      adress : this.adress,
+      imageUrl : this.imageUrl
+    };
+    console.log(data);
+    
+    let y = localStorage.getItem('session') as string;
+    var id = JSON.parse(y).iduser;
+    console.log(id);
+    
+
+    this.http
+      .put<any>(`http://localhost:3000/updateProfile/editProfil/${id}`, data)
+
+      .subscribe((result) => console.log(result, 'this is result'));
+  }
   ngOnInit(): void {
     // let y = localStorage.getItem('session') as string;
     // this.iduser = JSON.parse(y)[0].iduser;
     // console.log(y)
-    // // this.getuserData();
+    // this.getuserData();
   this.state= JSON.parse(localStorage.getItem('session')||'');
 
   }

@@ -30,7 +30,7 @@ var post = require('./routers/posts.js');
 app.use("/items",items)
 app.use("/",signup)
 app.use("/",login)
-app.use("/",updateProfile)
+app.use("/updateProfile",updateProfile)
 app.use("/",post);
 app.use("/",userData);
 

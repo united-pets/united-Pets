@@ -5,9 +5,10 @@
                 <img class="rounded-circle mt-5" width="150px" src={{profile.imageUrl}}>
              
 
-                <span class="font-weight-bold">{{state.firstName}} {{state.lastName}}</span>
-                <span class="text-black-50">{{state.email}}  </span>
-                <span>{{state.phoneNumber}}</span>
+                <span class="font-weight-bold">{{firstName}} {{lastName}}</span>
+                <span class="text-black-50">{{email}}  </span>
+                <span class="text-black-50">{{adress}}  </span>
+                <span>{{phoneNumber}}</span>
             </div>
             </div>
         <div class="col-md-5 border-right">
@@ -22,13 +23,13 @@
                         <label class="labels">
                             first Name
                         </label>
-                        <input [(ngModel)]= "state.firstName" type="text" class="form-control" placeholder="first name" value={{state.firstName}}>
+                        <input [(ngModel)]= "firstName" type="text" class="form-control" placeholder="first name" value={{firstName}}>
                     </div>
                     <div class="col-md-6">
                         <label class="labels">
                             last Name
                         </label>
-                        <input [(ngModel)]= "state.lastName" type="text" class="form-control" value={{state.lastName}} placeholder="surname">
+                        <input [(ngModel)]= "lastName" type="text" class="form-control" value={{lastName}} placeholder="surname">
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -36,19 +37,19 @@
                         <label class="labels">
                             Email
                         </label>
-                        <input [(ngModel)]= "state.email" type="text" class="form-control" placeholder="enter phone number" value={{state.email}}>
+                        <input [(ngModel)]= "email" type="text" class="form-control" placeholder="enter phone number" value={{email}}>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">
                             Address
                         </label>
-                        <input [(ngModel)]= "state.adress"  type="text" class="form-control" placeholder="enter address line 1" value={{state.adress}}>
+                        <input [(ngModel)]= "adress"  type="text" class="form-control" placeholder="enter address line 1" value={{adress}}>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">
                             Phone Number
                         </label>
-                        <input [(ngModel)]= "state.phoneNumber" type="text" class="form-control" placeholder="enter address line 2" value={{state.phoneNumber}}>
+                        <input [(ngModel)]= "phoneNumber" type="text" class="form-control" placeholder="enter address line 2" value={{phoneNumber}}>
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -68,7 +69,9 @@
 
                   
                 </div>
-                <div class="mt-5 text-center"><button  class="btn btn-primary profile-button" type="button" routerLink="/profile" >Save Changes</button></div>
+                <div class="mt-5 text-center">
+                    <button  class="btn btn-primary profile-button" type="button" (click)='updateProfile()' routerLink="/profile" >Save Changes</button>
+                </div>
             </div>
         </div>
 
