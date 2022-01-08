@@ -1,7 +1,13 @@
 <div class="container rounded bg-white mt-5 mb-5">
   <div class="row">
       <div class="col-md-3 border-right" *ngFor="let profile of profile">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src={{profile.imageUrl}}><span class="font-weight-bold">{{profile.firstName}} {{profile.lastName}}</span><span class="text-black-50">{{profile.email}}</span><span> </span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img class="rounded-circle mt-5" width="150px" src={{profile.imageUrl}}>
+              <span class="font-weight-bold">{{profile.firstName}} {{profile.lastName}}</span>
+              <span class="text-black-50">{{profile.email}}</span>
+              <span>
+                   </span>
+            </div>
       </div>
       <div class="col-md-5 border-right">
           <div class="p-3 py-5">
@@ -12,10 +18,20 @@
               
               <div class="row mt-3" *ngFor="let profile of profile">
                 <div >
-                 <div class="col-md-6" ><label class="labels">Name:</label>{{profile.firstName}} {{profile.lastName}}</div>
-                  <div class="col-md-12"><label class="labels">email:</label>{{profile.email}}</div>
-                  <div class="col-md-12"><label class="labels">Address:</label>{{profile.adress}}</div>
-                  <div class="col-md-12"><label class="labels">Phone Number</label>{{profile.phoneNumber}}</div>
+                 <div class="col-md-6" >
+                     <label class="labels">Name:</label>
+                     {{profile.firstName}} {{profile.lastName}}
+                    </div>
+                  <div class="col-md-12">
+                      <label class="labels">
+                          email:</label>{{profile.email}}
+                        </div>
+                  <div class="col-md-12"><label class="labels">
+                      Address:</label>{{profile.adress}}
+                </div>
+                  <div class="col-md-12"><label class="labels"
+                    >Phone Number</label>{{profile.phoneNumber}}
+                </div>
 
                 </div>
               </div>
@@ -28,7 +44,12 @@
       </div>
       <div class="col-md-4">
           <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience"><span>create store</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;create Now</span></div><br>
+              <div class="d-flex justify-content-between align-items-center experience">
+                  <span>create store</span><span class="border px-3 p-1 add-experience">
+                      <i class="fa fa-plus">
+
+                      </i>&nbsp;create Now</span>
+                    </div><br>
           </div>
       </div>
   </div>

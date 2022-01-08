@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire/compat/';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsComponent } from './items/items.component';
 ;
@@ -70,6 +71,8 @@ import { FooterComponent } from './footer/footer.component';
       messagingSenderId: '433767512994',
       appId: '1:433767512994:web:6f29ec9d65c24b949690fb',
       measurementId: 'G-FYJLH15TVJ',
+
+      
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,

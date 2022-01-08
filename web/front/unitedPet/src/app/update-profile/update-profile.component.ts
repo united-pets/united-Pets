@@ -21,7 +21,7 @@ export class UpdateProfileComponent implements OnInit {
 
 
   constructor(private http : HttpClient, private af:AngularFireStorage  ) {  
-    //  private afStorage:AngularFireStorage
+    
   }
 
 

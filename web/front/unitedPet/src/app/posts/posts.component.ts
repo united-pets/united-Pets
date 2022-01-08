@@ -13,6 +13,6 @@ export class PostsComponent implements OnInit {
   AnimalImage: String = '';
   Posts = Posts
   constructor() {}
-
+  
   ngOnInit(): void {}
 }
