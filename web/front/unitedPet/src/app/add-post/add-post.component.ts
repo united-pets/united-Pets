@@ -28,11 +28,7 @@ export class AddPostComponent implements OnInit {
   }
   uploadImage() {
     console.log(this.path);
-    // this.af.upload('/files' + Math.random()+this.path,this.path);
-
-    // const target = event.target as HTMLInputElement;
-    // const files = target.files as FileList;
-    // console.log('files', files[0]);
+    
     this.af
       .upload('path' + Math.random() + this.path, this.path)
       .then((response) => {
