@@ -20,6 +20,8 @@ var items = require("./routers/item.js");
 var signup = require('./routers/signup.js')
 var login = require('./routers/login.js')
 var updateProfile = require('./routers/updateProfile.js')
+var userData = require('./routers/getuserData.js')
+
 var post = require('./routers/posts.js');
 
 
@@ -30,6 +32,8 @@ app.use("/",signup)
 app.use("/",login)
 app.use("/",updateProfile)
 app.use("/",post);
+app.use("/",userData);
+
 
 
 //session 
