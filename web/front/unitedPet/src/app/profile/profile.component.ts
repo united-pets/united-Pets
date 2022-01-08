@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { profile } from '../profile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,10 +15,18 @@ export class ProfileComponent implements OnInit {
   adress:String= ''
   imageUrl:String= ''
   profile=profile
-  constructor() {}
+  constructor(private router : Router ) {
+    this.state = this.router.getCurrentNavigation()?.extras.state
+    console.log(this.state);
+  }
+  state: any = {}
 
   ngOnInit(): void {
-  
-  }
+  this.state= JSON.parse(localStorage.getItem('session')||'');
+  // this.firstName=y
+  // console.log(this.state)
+  // console.log(localStorage) ;
 
+}
+  
 }
