@@ -7,7 +7,8 @@ import {UpdateProfileComponent} from './update-profile/update-profile.component'
 import { SignupComponent } from './signup/signup.component'
 import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
-
+import { FormStoreComponent } from './form-store/form-store.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   
@@ -40,6 +41,14 @@ const routes: Routes = [
     path:"items",
     component:ItemsComponent
   },
+  {
+    path:"form-store",
+    component:FormStoreComponent
+  },
+  {
+    path:"corr",
+    component:HomeComponent
+  }
 ];
 
 @NgModule({

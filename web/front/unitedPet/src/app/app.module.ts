@@ -23,6 +23,8 @@ import { PostsComponent } from './posts/posts.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormStoreComponent } from './form-store/form-store.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { FooterComponent } from './footer/footer.component';
     PostsComponent,
     NavbarComponent,
     FooterComponent,
+    FormStoreComponent,
+    HomeComponent,
     
   ],
   imports: [

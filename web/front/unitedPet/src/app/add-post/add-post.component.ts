@@ -10,6 +10,7 @@ import { AngularFireStorage}from '@angular/fire/compat/storage'
   styleUrls: ['./add-post.component.css'],
 })
 export class AddPostComponent implements OnInit {
+  user_iduser:Number=0
   AnimalName: String = '';
   AnimalDescription: String = '';
   AnimalLocalisation: String = '';
@@ -36,12 +37,16 @@ export class AddPostComponent implements OnInit {
         response.ref.getDownloadURL().then((res) => {
           console.log(res);
           this.path = res;
+          this.AnimalImage=res
         });
       });
   
   }
   Addpost() {
+    let y = localStorage.getItem('session') as string;
     var post = {
+     
+      user_iduser : JSON.parse(y)[0].iduser ,
       AnimalName: this.AnimalName,
       AnimalDescription: this.AnimalDescription,
       AnimalLocalisation: this.AnimalLocalisation,

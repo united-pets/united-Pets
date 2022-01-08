@@ -12,7 +12,7 @@ export const profile = [
         lastName:'jouini',
         email:'bilel@hotmail.com',
         phoneNumber :'24845289' ,
-        adress:'hello world',
+        adress:'1091',
         imageUrl:"https://img.freepik.com/photos-gratuite/bel-homme-souriant-confiant-mains-croisees-poitrine_176420-18743.jpg?size=626&ext=jpg"
     }
 ]

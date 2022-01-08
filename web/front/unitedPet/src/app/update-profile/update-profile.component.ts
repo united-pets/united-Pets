@@ -61,12 +61,12 @@ export class UpdateProfileComponent implements OnInit {
 //       });
 //   }
   ngOnInit(): void {
-
-      
     let y = localStorage.getItem('session') as string;
     this.iduser = JSON.parse(y)[0].iduser;
     console.log(y)
     // this.getuserData();
   }
+
+      
 
 }
