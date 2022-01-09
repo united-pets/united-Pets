@@ -23,6 +23,7 @@ import { PostsComponent } from './posts/posts.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FooterComponent } from './footer/footer.component';
     PostsComponent,
     NavbarComponent,
     FooterComponent,
+    GoogleMapComponent,
     
   ],
   imports: [
@@ -73,6 +75,8 @@ import { FooterComponent } from './footer/footer.component';
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+  //  GoogleMapsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

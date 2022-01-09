@@ -12,21 +12,21 @@ export class PostsComponent implements OnInit {
   AnimalDescription: String = '';
   AnimalLocalisation: String = '';
   AnimalImage: String = '';
-  Posts = Posts;
-  // Posts: any = [];
+  // Posts = Posts;
+  Posts: any = [];
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-  //   this.http
-  //     .get('http://localhost:3000/posts')
+    this.http
+      .get('http://localhost:3000/posts')
 
-  //     .subscribe({
-  //       next: (Response) => {
-  //         console.log('response', Response);
-  //         this.Posts = Response;
-  //         console.log('here', this.Posts);
-  //       },
-  //       error: (error) => console.log('error', error),
-  //     });
+      .subscribe({
+        next: (Response) => {
+          console.log('response', Response);
+          this.Posts = Response;
+          console.log('here', this.Posts);
+        },
+        error: (error) => console.log('error', error),
+      });
   }
 }
