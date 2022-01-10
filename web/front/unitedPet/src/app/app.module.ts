@@ -26,6 +26,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddItemsToStoreComponent } from './add-items-to-store/add-items-to-store.component';
+import { StoreComponent } from './store/store.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { ContactComponent } from './contact/contact.component';
     FormStoreComponent,
     HomeComponent,
     ContactComponent,
+    AddItemsToStoreComponent,
+    StoreComponent,
     
   ],
   imports: [

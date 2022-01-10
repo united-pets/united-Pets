@@ -10,6 +10,8 @@ import { PostsComponent } from './posts/posts.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddItemsToStoreComponent } from './add-items-to-store/add-items-to-store.component';
+import { StoreComponent } from './store/store.component';
 const routes: Routes = [
   
   {
@@ -52,6 +54,14 @@ const routes: Routes = [
   {
     path:"",
     component:HomeComponent
+  },
+  {
+    path:"add-items-to-store",
+    component:AddItemsToStoreComponent
+  },
+  {
+    path:"store",
+    component:StoreComponent
   }
 ];
 
