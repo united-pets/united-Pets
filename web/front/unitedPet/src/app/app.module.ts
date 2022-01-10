@@ -27,6 +27,8 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
+import { OnePostComponent } from './one-post/one-post.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ContactComponent } from './contact/contact.component';
     FormStoreComponent,
     HomeComponent,
     ContactComponent,
+    UpdatePostComponent,
+    OnePostComponent,
     
   ],
   imports: [

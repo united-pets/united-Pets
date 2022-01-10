@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage}from '@angular/fire/compat/storage'
-import { AddPostService } from '../services/add-post.service';
 
 @Component({
-  selector: 'app-add-post',
-  templateUrl: './add-post.component.html',
-  styleUrls: ['./add-post.component.css'],
+  selector: 'app-update-post',
+  templateUrl: './update-post.component.html',
+  styleUrls: ['./update-post.component.css']
 })
-export class AddPostComponent implements OnInit {
+export class UpdatePostComponent implements OnInit {
+
   user_iduser:Number=0
   AnimalName: String = '';
   AnimalDescription: String = '';
@@ -20,12 +20,10 @@ export class AddPostComponent implements OnInit {
   // thumbnail:string=''
   constructor(
     private http: HttpClient,
-    private af: AngularFireStorage,
-    private addPostService:AddPostService
+    private af: AngularFireStorage
   ) {}
 
-  ngOnInit(): void { }
-  
+  ngOnInit(): void {}
   upload(event: any) {
     this.path = event.target.files[0];
     console.log(this.path)
@@ -57,7 +55,7 @@ export class AddPostComponent implements OnInit {
     };
 
     console.log(post);
-    this.http.post('http://localhost:3000/addPost', post).subscribe({
+    this.http.put('http://localhost:3000/addPost', post).subscribe({
       next: (data) => {
         console.log(data);
       },
@@ -83,3 +81,4 @@ export class AddPostComponent implements OnInit {
     this.AnimalImage = event.target.value;
   }
 }
+

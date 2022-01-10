@@ -10,6 +10,7 @@ import { PostsComponent } from './posts/posts.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 const routes: Routes = [
   
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'addPost',
     component: AddPostComponent,
+  },
+  {
+     path: 'updatePost',
+    component: UpdatePostComponent,
   },
   {
     path: 'posts',

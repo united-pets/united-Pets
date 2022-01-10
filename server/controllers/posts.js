@@ -3,12 +3,13 @@ module.exports = {
   PostOne: (req, res) => {
     console.log(req.body);
     db.query(
-      "insert into `Posts` (`AnimalName`,`AnimalDescription`,`AnimalLocalisation`,`AnimalImage`) values(?,?,?,?)",
+      "insert into `Posts` (`AnimalName`,`AnimalDescription`,`AnimalLocalisation`,`AnimalImage`,`user_iduser`) values(?,?,?,?,?)",
       [
         req.body.AnimalImage,
         req.body.AnimalName,
         req.body.AnimalDescription,
         req.body.AnimalLocalisation,
+        req.body.user_iduser,
       ],
       (err, result) => {
         if (err) {
