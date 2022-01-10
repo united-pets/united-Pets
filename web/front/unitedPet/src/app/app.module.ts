@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddPetsComponent } from './add-pets/add-pets.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ContactComponent } from './contact/contact.component';
     FormStoreComponent,
     HomeComponent,
     ContactComponent,
+    AddPetsComponent,
     
   ],
   imports: [

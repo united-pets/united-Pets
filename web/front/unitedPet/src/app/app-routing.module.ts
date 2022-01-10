@@ -10,6 +10,7 @@ import { PostsComponent } from './posts/posts.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddPetsComponent } from './add-pets/add-pets.component';
 const routes: Routes = [
   
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path:"",
     component:HomeComponent
+  },
+  {
+    path:"add-pets",
+    component:AddPetsComponent
   }
 ];
 

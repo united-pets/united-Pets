@@ -46,7 +46,7 @@ export class AddPostComponent implements OnInit {
     let y = localStorage.getItem('session') as string;
     var post = {
      
-      user_iduser : JSON.parse(y)[0].iduser ,
+      user_iduser : JSON.parse(y).iduser ,
       AnimalName: this.AnimalName,
       AnimalDescription: this.AnimalDescription,
       AnimalLocalisation: this.AnimalLocalisation,
