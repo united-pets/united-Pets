@@ -11,8 +11,8 @@ import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { OnePostComponent } from './one-post/one-post.component';
 const routes: Routes = [
-  
   {
     path: 'profile',
     component: ProfileComponent,
@@ -39,7 +39,7 @@ const routes: Routes = [
     component: AddPostComponent,
   },
   {
-     path: 'updatePost',
+    path: 'updatePost',
     component: UpdatePostComponent,
   },
   {
@@ -47,17 +47,21 @@ const routes: Routes = [
     component: PostsComponent,
   },
   {
-    path:"items",
-    component:ItemsComponent
+    path: 'post-details',
+    component: OnePostComponent,
   },
   {
-    path:"form-store",
-    component:FormStoreComponent
+    path: 'items',
+    component: ItemsComponent,
   },
   {
-    path:"",
-    component:HomeComponent
-  }
+    path: 'form-store',
+    component: FormStoreComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({

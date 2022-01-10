@@ -20,7 +20,8 @@ export class UpdatePostComponent implements OnInit {
   // thumbnail:string=''
   constructor(
     private http: HttpClient,
-    private af: AngularFireStorage
+    private af: AngularFireStorage,
+    private route:Router
   ) {}
 
   ngOnInit(): void {}
@@ -55,8 +56,9 @@ export class UpdatePostComponent implements OnInit {
     };
 
     console.log(post);
-    this.http.put('http://localhost:3000/addPost', post).subscribe({
+    this.http.put('http://localhost:3000/update-post', post).subscribe({
       next: (data) => {
+        this.route.navigateByUrl('posts');
         console.log(data);
       },
       error: (error) => {

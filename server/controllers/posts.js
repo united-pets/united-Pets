@@ -44,7 +44,7 @@ module.exports = {
   //     );
   // },
   GetAll: (req, res) => {
-    db.query("SELECT * FROM Posts", (err, result) => {
+    db.query("SELECT * FROM `Posts`", (err, result) => {
       if (!err) {
         res.send(result);
         

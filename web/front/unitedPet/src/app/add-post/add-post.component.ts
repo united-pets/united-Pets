@@ -21,7 +21,8 @@ export class AddPostComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private af: AngularFireStorage,
-    private addPostService:AddPostService
+    private addPostService: AddPostService,
+    private route:Router
   ) {}
 
   ngOnInit(): void { }

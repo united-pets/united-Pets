@@ -18,7 +18,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.http
-      .get('http://localhost:3000/posts')
+      .get('http://localhost:3000/getAll')
 
       .subscribe({
         next: (Response) => {
