@@ -23,6 +23,8 @@ export class AddPostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+
   upload(event: any) {
     this.path = event.target.files[0];
     console.log(this.path)
@@ -64,7 +66,7 @@ export class AddPostComponent implements OnInit {
     });
   }
   name(event: any) {
-    console.log(event.target.value);
+    console.log(event.target.value);  
     this.AnimalName = event.target.value;
   }
   description(event: any) {
