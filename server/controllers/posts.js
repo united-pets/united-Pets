@@ -1,6 +1,5 @@
 var db = require("../database/index.js");
 module.exports = {
-<<<<<<< HEAD
   PostOne: (req, res) => {
     console.log(req.body);
     db.query(
@@ -17,25 +16,6 @@ module.exports = {
         } else {
           res.send(result);
         }
-=======
-    PostOne: (req, res) => {
-            console.log(req.body);
-            db.query(
-              "insert into `Posts` (`AnimalName`,`AnimalDescription`,`AnimalLocalisation`,`AnimalImage` , `user_iduser` ) values(?,?,?,?,?)",
-              [
-                req.body.AnimalImage,
-                req.body.AnimalName,
-                req.body.AnimalDescription,
-                req.body.AnimalLocalisation,
-                req.body.user_iduser
-              ],
-              (err, result) => {
-                if (err) {
-                  console.log(err);
-                } else {
-                  res.send(result);
-                }
->>>>>>> 2c13a284bb167acf8dc54c9d0d9d1e4b00328a14
 
         //   db.query("select * from Posts", (err, result) => {
         //     if (err) {
