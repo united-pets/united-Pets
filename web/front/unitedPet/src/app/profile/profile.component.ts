@@ -21,9 +21,12 @@ export class ProfileComponent implements OnInit {
   }
   state: any = {}
 
+ 
+  
+
+  
   ngOnInit(): void {
   this.state= JSON.parse(localStorage.getItem('session')||'');
-  // this.firstName=y
   console.log(this.state)
   console.log(localStorage) ;
 

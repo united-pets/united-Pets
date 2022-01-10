@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
-
+  user:any
   iduser : Number = 0
   firstName: String = ''
   lastName:String = ''
@@ -39,7 +39,7 @@ export class UpdateProfileComponent implements OnInit {
   uplode(event : any ){
   this.path = event.target.files[0]
   
-  console.log(this.path);
+  // console.log(this.path);
 
   }
 
@@ -56,17 +56,7 @@ export class UpdateProfileComponent implements OnInit {
       });
     });
 }
-  // getuserData() {
-  //    var iduser = this.iduser;
-  //   this.http.put(`http://localhost:3000/user/:${.iduser}`).subscribe( (result) => {
-  //         this.firstName = this.firstName;
-  //         this.lastName = this.lastName;
-  //         this.email = this.email;
-  //         this.adress = this.adress;
-  //         this.imageUrl = this.imageUrl;
-  //         console.log('result :', result);
-  //     });
-  // }
+
 
   updateProfile() {
     const data = {
@@ -77,17 +67,32 @@ export class UpdateProfileComponent implements OnInit {
       adress : this.adress,
       imageUrl : this.imageUrl
     };
-    console.log(data);
+    // console.log(data);
     
     let y = localStorage.getItem('session') as string;
     var id = JSON.parse(y).iduser;
-    console.log(id);
+    // console.log(id);
     
 
     this.http
-      .put<any>(`http://localhost:3000/updateProfile/editProfil/${id}`, data)
+      .put<any>(`http://localhost:3000/editProfil/${id}`, data)
+      // console.log(id)
+      
+      .subscribe({
+        next:Response =>{
+          console.log('edited',Response)
+          this.router.navigateByUrl('profile')     
+        
+        },
+        error:error =>console.log('err',error)
+        
+      })
 
-      .subscribe((result) => console.log(result, 'this is result'));
+      // .subscribe((result) => 
+      // console.log(result, 'this is result')
+     
+      
+      // );
   }
   ngOnInit(): void {
     // let y = localStorage.getItem('session') as string;
