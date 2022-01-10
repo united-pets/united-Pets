@@ -5,10 +5,10 @@ module.exports = {
     db.query(
       "insert into `Posts` (`AnimalName`,`AnimalDescription`,`AnimalLocalisation`,`AnimalImage`,`user_iduser`) values(?,?,?,?,?)",
       [
-        req.body.AnimalImage,
         req.body.AnimalName,
         req.body.AnimalDescription,
         req.body.AnimalLocalisation,
+        req.body.AnimalImage,
         req.body.user_iduser,
       ],
       (err, result) => {
@@ -53,22 +53,22 @@ module.exports = {
       }
     });
   },
-  // GetSome: (req, res) => {
-  //   db.query(
-  //     "select * from Posts where place= ?",
-  //     [req.params.search],
-  //     (err, result) => {
-  //       if (err) {
-  //         console.log(err);
-  //       } else {
-  //         res.send(result);
-  //       }
-  //     }
-  //   );
-  // },
+  GetSome: (req, res) => {
+    db.query(
+      "select * from `Posts`where place= ?",
+      [req.params.search],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(result);
+        }
+      }
+    );
+  },
   GetDetails: (req, res) => {
     db.query(
-      "select * from Posts where postId= ?",
+      "select * from `Posts`where idPosts= ?",
       [req.params.id],
       (err, result) => {
         if (err) {
