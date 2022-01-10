@@ -1,47 +1,93 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <i class="fa fa-home"></i>
-            Home
-            </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['addPost']">
-           find your lost pet
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " [routerLink]="['posts']" >
-            see lost pets
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profile']">
 
-            profile
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">
+<div id="sticky-header" class="menu-area">
+  <div class="container custom-container">
+      <div class="row">
+          <div class="col-12">
+              <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+              <div class="menu-wrap">
+                  <nav class="menu-nav show">
+                      <div class="logo"><a href="index.html"><img src="img/logo/logo.png" alt=""></a></div>
+                      <div class="navbar-wrap main-menu d-none d-lg-flex">
+                          <ul class="navigation">
+                              <li class="menu-item-has-children"><a href="index.html">Home</a>
 
-           login
-          </a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+                              </li>
+                              <li><a href="dog-list.html">Dog List</a></li>
+                              <li class="menu-item-has-children"><a [routerLink]="['/profile']">Shop</a>
+                                  <ul class="submenu">
+                                      <li><a href="shop.html">Our Shop</a></li>
+                                      <li><a href="shop-details.html">Shop Details</a></li>
+                                  </ul>
+                              </li>
+                              <li><a href="adoption.html">Adoption</a></li>
+                              <li class="menu-item-has-children"><a href="breeder.html">Breeder</a>
+                                  <ul class="submenu">
+                                      <li><a href="breeder.html">Our Breeder</a></li>
+                                      <li><a href="breeder-details.html">Breeder Details</a></li>
+                                  </ul>
+                              </li>
+                              <li class="menu-item-has-children"><a href="blog.html">lost pets</a>
+                                  <ul class="submenu">
+                                      <li><a [routerLink]="['/addPost']">add a lost animal</a></li>
+                                      <li><a [routerLink]="['/posts']">see lost pets</a></li>
+                                  </ul>
+                              </li>
+                              <li class="active"><a [routerLink]="['/contacts']">contacts</a></li>
+                          </ul>
+                      </div>
+                      <div class="header-action d-none d-md-block">
+                          <ul>
+                              <li class="header-search"><a href="#"><i class="flaticon-search"></i></a></li>
+                              <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i><span>2</span></a>
+                                  <ul class="minicart">
+                                      <li class="d-flex align-items-start">
+                                          <div class="cart-img">
+                                              <a href="#"><img src="img/product/cart_p01.jpg" alt=""></a>
+                                          </div>
+                                          <div class="cart-content">
+                                              <h4><a href="#">The King Charles Spaniel</a></h4>
+                                              <div class="cart-price">
+                                                  <span class="new">$229.9</span>
+                                                  <span><del>$229.9</del></span>
+                                              </div>
+                                          </div>
+                                          <div class="del-icon">
+                                              <a href="#"><i class="far fa-trash-alt"></i></a>
+                                          </div>
+                                      </li>
+                                      <li class="d-flex align-items-start">
+                                          <div class="cart-img">
+                                              <a href="#"><img src="img/product/cart_p02.jpg" alt=""></a>
+                                          </div>
+                                          <div class="cart-content">
+                                              <h4><a href="#">The Labrador Retriever</a></h4>
+                                              <div class="cart-price">
+                                                  <span class="new">$229.9</span>
+                                                  <span><del>$229.9</del></span>
+                                              </div>
+                                          </div>
+                                          <div class="del-icon">
+                                              <a href="#"><i class="far fa-trash-alt"></i></a>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="total-price">
+                                              <span class="f-left">Total:</span>
+                                              <span class="f-right">$239.9</span>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="checkout-link">
+                                              <a href="#">Shopping Cart</a>
+                                              <a class="black-color" href="#">Checkout</a>
+                                          </div>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="header-btn" [routerLink]="['/login']"><a class="btn">login now <img src="img/icon/w_pawprint.png" alt=""></a></li>
+                          </ul>
+                      </div>
+                  </nav>
+              </div>
+
+        

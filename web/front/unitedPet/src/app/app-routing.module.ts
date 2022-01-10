@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
-
+import { ContactComponent } from './contact/contact.component';
 const routes: Routes = [
   
   {
@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+  },
+  {
+    path: 'contacts',
+    component: ContactComponent,
   },
   {
     path: 'update-profile',
@@ -46,7 +50,7 @@ const routes: Routes = [
     component:FormStoreComponent
   },
   {
-    path:"corr",
+    path:"",
     component:HomeComponent
   }
 ];
