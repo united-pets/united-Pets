@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { HomeComponent } from './home/home.component';
     GoogleMapComponent,
     FormStoreComponent,
     HomeComponent,
+    ContactComponent,
     
   ],
   imports: [
