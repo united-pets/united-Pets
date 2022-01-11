@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage}from '@angular/fire/compat/storage'
+import { AddPostService } from '../services/add-post.service';
 
 @Component({
   selector: 'app-add-post',
@@ -19,10 +20,13 @@ export class AddPostComponent implements OnInit {
   // thumbnail:string=''
   constructor(
     private http: HttpClient,
-    private af: AngularFireStorage
+    private af: AngularFireStorage,
+    private addPostService: AddPostService,
+    private route:Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+  
   upload(event: any) {
     this.path = event.target.files[0];
     console.log(this.path)
