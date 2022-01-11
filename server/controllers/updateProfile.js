@@ -5,7 +5,7 @@ module.exports={
         db.query("UPDATE `users` SET `firstName` = ? , `lastName`=? ,`email`=?, `phoneNumber`=? ,`adress`=? ,`imageUrl`=? WHERE `iduser` = ? ",
         [req.body.firstName,req.body.lastName , req.body.email,req.body.phoneNumber,req.body.adress,req.body.imageUrl,req.params.iduser],(err,result)=>{
            if(err){
-               console.log(err);
+               res.status(401).send(err)
            }else
            {
                res.status(201).send(result);

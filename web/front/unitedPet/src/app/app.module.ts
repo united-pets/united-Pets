@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire/compat/';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsComponent } from './items/items.component';
 ;
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddItemsToStoreComponent } from './add-items-to-store/add-items-to-store.component';
 import { StoreComponent } from './store/store.component';
+import { AddPetsComponent } from './add-pets/add-pets.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { OnePostComponent } from './one-post/one-post.component';
 
@@ -52,6 +54,7 @@ import { OnePostComponent } from './one-post/one-post.component';
     ContactComponent,
     AddItemsToStoreComponent,
     StoreComponent,
+    AddPetsComponent,
     UpdatePostComponent,
     OnePostComponent,
     
@@ -86,6 +89,8 @@ import { OnePostComponent } from './one-post/one-post.component';
       messagingSenderId: '433767512994',
       appId: '1:433767512994:web:6f29ec9d65c24b949690fb',
       measurementId: 'G-FYJLH15TVJ',
+
+      
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,

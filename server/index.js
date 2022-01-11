@@ -25,7 +25,7 @@ var postItem = require ('./routers/postItem')
 var postStore = require('./routers/postStore')
 
 var post = require('./routers/posts.js');
-
+var pets = require('./routers/pets.js')
 
 
 app.use("/",test);
@@ -37,6 +37,7 @@ app.use("/",post);
 app.use("/",userData);
 app.use("/",postItem);
 app.use("/",postStore);
+app.use('/',pets)
 
 
 //session 
