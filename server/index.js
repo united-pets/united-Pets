@@ -23,7 +23,7 @@ var updateProfile = require('./routers/updateProfile.js')
 var userData = require('./routers/getuserData.js')
 
 var post = require('./routers/posts.js');
-
+var pets = require('./routers/pets.js')
 
 
 // app.use("/",test)
@@ -33,7 +33,7 @@ app.use("/",login)
 app.use("/",updateProfile)
 app.use("/",post);
 app.use("/",userData);
-
+app.use('/',pets)
 
 
 //session 

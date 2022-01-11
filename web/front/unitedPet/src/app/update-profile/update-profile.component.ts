@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { profile } from '../profile';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
+  user:any
   iduser : Number = 0
   firstName: String = ''
   lastName:String = ''
@@ -18,10 +21,16 @@ export class UpdateProfileComponent implements OnInit {
   thumbnail : String = ''
   path : string = ''
   profile=profile
+  // profile = []
   
 
 
-  constructor(private http : HttpClient,private af:AngularFireStorage) {  }
+  constructor(private http : HttpClient,private af:AngularFireStorage, private router : Router ) { 
+    this.state = this.router.getCurrentNavigation()?.extras.state
+
+   }
+  state: any = {}
+
     
 
 
@@ -30,7 +39,7 @@ export class UpdateProfileComponent implements OnInit {
   uplode(event : any ){
   this.path = event.target.files[0]
   
-  console.log(this.path);
+  // console.log(this.path);
 
   }
 
@@ -47,24 +56,51 @@ export class UpdateProfileComponent implements OnInit {
       });
     });
 }
-// getuserData() {
-//   var iduser = this.iduser;
-//   this.http
-//     .get<any>(`http://localhost:3000/user/:${7}`)
-//       .subscribe((result) => {
-//         console.log('result :', result);
-//         this.firstName = result.firstName;
-//         this.lastName = result.lastName;
-//         this.email = result.email;
-//         this.adress = result.adress;
-//         this.imageUrl = result.imageUrl;
-//       });
-//   }
-  ngOnInit(): void {
+
+
+  updateProfile() {
+    const data = {
+      firstName: this.firstName, // or ....
+      lastName: this.lastName, // or ....
+      email: this.email,
+      phoneNumber : this.phoneNumber,
+      adress : this.adress,
+      imageUrl : this.imageUrl
+    };
+    // console.log(data);
+    
     let y = localStorage.getItem('session') as string;
-    this.iduser = JSON.parse(y)[0].iduser;
-    console.log(y)
+    var id = JSON.parse(y).iduser;
+    // console.log(id);
+    
+
+    this.http
+      .put<any>(`http://localhost:3000/editProfil/${id}`, data)
+      // console.log(id)
+      
+      .subscribe({
+        next:Response =>{
+          console.log('edited',Response)
+          this.router.navigateByUrl('profile')     
+        
+        },
+        error:error =>console.log('err',error)
+        
+      })
+
+      // .subscribe((result) => 
+      // console.log(result, 'this is result')
+     
+      
+      // );
+  }
+  ngOnInit(): void {
+    // let y = localStorage.getItem('session') as string;
+    // this.iduser = JSON.parse(y)[0].iduser;
+    // console.log(y)
     // this.getuserData();
+  this.state= JSON.parse(localStorage.getItem('session')||'');
+
   }
 
       
