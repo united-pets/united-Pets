@@ -21,19 +21,22 @@ var signup = require('./routers/signup.js')
 var login = require('./routers/login.js')
 var updateProfile = require('./routers/updateProfile.js')
 var userData = require('./routers/getuserData.js')
+var postItem = require ('./routers/postItem')
+var postStore = require('./routers/postStore')
 
 var post = require('./routers/posts.js');
 
 
 
-app.use("/",test)
-app.use("/items",items)
-app.use("/",signup)
-app.use("/",login)
-app.use("/",updateProfile)
+app.use("/",test);
+app.use("/items",items);
+app.use("/",signup);
+app.use("/",login);
+app.use("/",updateProfile);
 app.use("/",post);
 app.use("/",userData);
-
+app.use("/",postItem);
+app.use("/",postStore);
 
 
 //session 
