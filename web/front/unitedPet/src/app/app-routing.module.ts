@@ -13,10 +13,15 @@ import { ContactComponent } from './contact/contact.component';
 import { AddPetsComponent } from './add-pets/add-pets.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { OnePostComponent } from './one-post/one-post.component';
+import { StoreComponent } from './store/store.component';
 const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'Store',
+    component: StoreComponent,
   },
 
   {

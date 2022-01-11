@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AddPostService {
-  
+export class SharedService {
+  islogged : any =true
+  log: any =false
+  profile:any = false 
   constructor() { }
 
 }
