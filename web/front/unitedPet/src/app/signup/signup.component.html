@@ -1,70 +1,57 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
-
-
-
-
-
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Create Account</h4>
-	<p class="text-center">Get started with your free account</p>
-	<p>
-		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-	</p>
-	<p class="divider-text">
-        <span class="bg-light">OR</span>
-    </p>
-	<form>
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="First Name" type="text" (change)="name($event)" >
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Last name" type="text" (change)="last($event)">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Email address" type="email" (change)="Email($event)" >
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+<div class="container">
+	<form class="form-horizontal" role="form">
+		<h2>Registration Form</h2>
+		<div class="form-group">
+			<label for="firstName" class="col-sm-3 control-label">firs tName</label>
+			<div class="col-sm-9">
+				<input type="text" id="firstName" placeholder="First Name" class="form-control" (change)="name($event)" autofocus  >
+				
+			</div>
 		</div>
-
-    	<input name="" class="form-control" placeholder="Phone number" type="text" (change)="Number($event)">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		<div class="form-group">
+			<label for="firstName" class="col-sm-3 control-label">Last Name</label>
+			<div class="col-sm-9">
+				<input type="text" id="firstName" placeholder="Last Name" class="form-control" (change)="last($event)" autofocus>
+				
+			</div>
 		</div>
-        <input class="form-control" placeholder="adress" type="adress" (change)="adresss($event)">
-    </div> <!-- form-group// --> 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		<div class="form-group">
+			<label for="email" class="col-sm-3 control-label">Email</label>
+			<div class="col-sm-9">
+				<input type="email" id="email" placeholder="Email" class="form-control" (change)="Email($event)">
+			</div>
 		</div>
-        <input class="form-control" placeholder="Create password" type="password" (change)="Psw($event)">
-    </div> <!-- form-group// -->                                     
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="signup()"> Create Account  </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
-
+		<div class="form-group">
+			<label for="email" class="col-sm-3 control-label">Phone</label>
+			<div class="col-sm-9">
+				<input type="email" id="email" placeholder="Phone Number" class="form-control" (change)="Number($event)" >
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-3 control-label">Address</label>
+			<div class="col-sm-9">
+				<input type="email" id="email" placeholder="Address" class="form-control" (change)="Email($event)" >
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-sm-3 control-label">Password</label>
+			<div class="col-sm-9">
+				<input type="password" id="password" placeholder="Password" class="form-control" (change)="Psw($event)">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-3">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">I accept <a href="#">terms</a>
+					</label>
+				</div>
+			</div>
+		</div> <!-- /.form-group -->
+		<div class="form-group">
+			<div class="col-sm-9 col-sm-offset-3">
+				<button type="submit" class="btn btn-danger" (click)="signup()" [routerLink]="['/login']">Register</button>
+			</div>
+		</div>
+	</form> <!-- /form -->
+</div> <!-- ./container -->

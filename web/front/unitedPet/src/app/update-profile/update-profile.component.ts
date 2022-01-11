@@ -8,6 +8,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
+  iduser : Number = 0
   firstName: String = ''
   lastName:String = ''
   email:String = ''
@@ -15,23 +16,16 @@ export class UpdateProfileComponent implements OnInit {
   adress:String= ''
   imageUrl:String= ''
   thumbnail : String = ''
-  profile=profile;
   path : string = ''
+  profile=profile
+  
 
 
-
-  constructor(private http : HttpClient, private af:AngularFireStorage  ) {  
-    //  private afStorage:AngularFireStorage
-  }
-
-
-   update() {
-    var url = "http://localhost:3000/updateProfile"
-    this.http.post(url,this.profile).subscribe((res)=>{
-      console.log(res);
-    })
+  constructor(private http : HttpClient,private af:AngularFireStorage) {  }
     
-  }
+
+
+
 
   uplode(event : any ){
   this.path = event.target.files[0]
@@ -53,8 +47,26 @@ export class UpdateProfileComponent implements OnInit {
       });
     });
 }
-
+// getuserData() {
+//   var iduser = this.iduser;
+//   this.http
+//     .get<any>(`http://localhost:3000/user/:${7}`)
+//       .subscribe((result) => {
+//         console.log('result :', result);
+//         this.firstName = result.firstName;
+//         this.lastName = result.lastName;
+//         this.email = result.email;
+//         this.adress = result.adress;
+//         this.imageUrl = result.imageUrl;
+//       });
+//   }
   ngOnInit(): void {
+    let y = localStorage.getItem('session') as string;
+    this.iduser = JSON.parse(y)[0].iduser;
+    console.log(y)
+    // this.getuserData();
   }
+
+      
 
 }
