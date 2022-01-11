@@ -10,6 +10,7 @@ import { PostsComponent } from './posts/posts.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddPetsComponent } from './add-pets/add-pets.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { OnePostComponent } from './one-post/one-post.component';
 const routes: Routes = [
@@ -55,13 +56,20 @@ const routes: Routes = [
     component: ItemsComponent,
   },
   {
-    path: 'form-store',
-    component: FormStoreComponent,
+    path:"",
+    component:HomeComponent
   },
   {
-    path: '',
-    component: HomeComponent,
+    path:"add-pets",
+    component:AddPetsComponent
   },
+  {
+
+    path: 'form-store',
+    component: FormStoreComponent,
+  }
+
+
 ];
 
 @NgModule({
