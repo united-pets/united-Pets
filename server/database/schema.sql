@@ -104,8 +104,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
-  `AnimalName` VARCHAR(255) NULL DEFAULT NULL,
-  `AnimalDescription` VARCHAR(255) NULL DEFAULT NULL,
+  `AnimalName` VARCHAR(20) NULL DEFAULT NULL,
+  `AnimalDescription` VARCHAR(1000) NULL DEFAULT NULL,
   `AnimalLocalisation` VARCHAR(20) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`idPosts`, `user_iduser`),

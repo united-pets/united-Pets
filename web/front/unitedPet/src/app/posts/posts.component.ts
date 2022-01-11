@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Posts } from '../Mock posts';
 
 @Component({
@@ -11,8 +12,21 @@ export class PostsComponent implements OnInit {
   AnimalDescription: String = '';
   AnimalLocalisation: String = '';
   AnimalImage: String = '';
-  Posts = Posts
-  constructor() {}
-  
-  ngOnInit(): void {}
+  // Posts = Posts;
+  Posts: any = [];
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http
+      .get('http://localhost:3000/getAll')
+
+      .subscribe({
+        next: (Response) => {
+          console.log('response', Response);
+          this.Posts = Response;
+          console.log('here', this.Posts);
+        },
+        error: (error) => console.log('error', error),
+      });
+  }
 }
