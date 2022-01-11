@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `phoneNumber` VARCHAR(8) NULL DEFAULT NULL,
   `password` VARCHAR(255) NULL DEFAULT NULL,
   `adress` VARCHAR(255) NULL DEFAULT NULL,
-  `imageUrl` VARCHAR(255) NULL DEFAULT NULL,
+  `imageUrl` VARCHAR(500) NULL DEFAULT NULL,
   `typeofservice` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Stores` (
   `StoreLogo` VARCHAR(500) NULL DEFAULT NULL,
   `taxRegistrationNumber` VARCHAR(20) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
-  `taxRegistrationNumbzerImage` VARCHAR(255) NULL DEFAULT NULL,
+  `taxRegistrationNumbzerImage` VARCHAR(500) NULL DEFAULT NULL,
   PRIMARY KEY (`idStore`, `user_iduser`),
   INDEX `fk_Store_user1_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_Store_user1`
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
   `ItemCategory` VARCHAR(20) NULL DEFAULT NULL,
   `quantity` INT NULL DEFAULT NULL,
   `Store_idStore` INT NOT NULL,
-  `sales_idsales` INT NOT NULL,
+  `sales_idsales` INT UNIQUE,
   PRIMARY KEY (`idItems`, `Store_idStore`, `sales_idsales`),
   INDEX `fk_Items_Store1_idx` (`Store_idStore` ASC) VISIBLE,
   INDEX `fk_Items_sales1_idx` (`sales_idsales` ASC) VISIBLE,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comments` (
   `animalName` VARCHAR(15) NULL DEFAULT NULL,
   `race` VARCHAR(10) NULL DEFAULT NULL,
   `color` VARCHAR(10) NULL DEFAULT NULL,
-  `localisation` VARCHAR(30) NULL DEFAULT NULL,
+  `localisation` VARCHAR(100) NULL DEFAULT NULL,
   `Posts_idPosts` INT NOT NULL,
   `user_iduser` INT NOT NULL,
   `comments_idcomments` INT NOT NULL,
