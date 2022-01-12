@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage}from '@angular/fire/compat/storage'
+import { AddPostService } from '../services/add-post.service';
 
 @Component({
   selector: 'app-add-post',
@@ -19,10 +20,14 @@ export class AddPostComponent implements OnInit {
   // thumbnail:string=''
   constructor(
     private http: HttpClient,
-    private af: AngularFireStorage
+    private af: AngularFireStorage,
+    private addPostService: AddPostService,
+    private route:Router
   ) {}
 
   ngOnInit(): void {}
+
+
   upload(event: any) {
     this.path = event.target.files[0];
     console.log(this.path)
@@ -46,7 +51,7 @@ export class AddPostComponent implements OnInit {
     let y = localStorage.getItem('session') as string;
     var post = {
      
-      user_iduser : JSON.parse(y)[0].iduser ,
+      user_iduser : JSON.parse(y).iduser ,
       AnimalName: this.AnimalName,
       AnimalDescription: this.AnimalDescription,
       AnimalLocalisation: this.AnimalLocalisation,
@@ -64,7 +69,7 @@ export class AddPostComponent implements OnInit {
     });
   }
   name(event: any) {
-    console.log(event.target.value);
+    console.log(event.target.value);  
     this.AnimalName = event.target.value;
   }
   description(event: any) {

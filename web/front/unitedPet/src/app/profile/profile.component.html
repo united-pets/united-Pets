@@ -1,7 +1,17 @@
-<div class="container rounded bg-white mt-5 mb-5">
+<section class="header-inner bg-dark text-center">
+    <div class="container">
+
+    </div>
+  </section>
+<!-- <div class="container rounded bg-white mt-5 mb-5">
   <div class="row">
       <div class="col-md-3 border-right" *ngFor="let profile of profile">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src={{profile.imageUrl}}><span class="font-weight-bold">{{profile.firstName}} {{profile.lastName}}</span><span class="text-black-50">{{profile.email}}</span><span> </span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img class="rounded-circle mt-5" width="150px" src={{state.imageUrl}}>
+              <span class="font-weight-bold">{{state.firstName}} {{state.lastName}}</span>
+              <span class="text-black-50">{{state.email}}</span>
+              <span class="text-black-50">{{state.phoneNumber}}</span>
+            </div>
       </div>
       <div class="col-md-5 border-right">
           <div class="p-3 py-5">
@@ -12,10 +22,20 @@
               
               <div class="row mt-3" *ngFor="let profile of profile">
                 <div >
-                 <div class="col-md-6" ><label class="labels">Name:</label>{{profile.firstName}} {{profile.lastName}}</div>
-                  <div class="col-md-12"><label class="labels">email:</label>{{profile.email}}</div>
-                  <div class="col-md-12"><label class="labels">Address:</label>{{profile.adress}}</div>
-                  <div class="col-md-12"><label class="labels">Phone Number</label>{{profile.phoneNumber}}</div>
+                 <div class="col-md-6" >
+                     <label class="labels">Name:</label>
+                     {{state.firstName}} {{state.lastName}}
+                    </div>
+                  <div class="col-md-12">
+                      <label class="labels">
+                          email:</label>{{state.email}}
+                        </div>
+                  <div class="col-md-12"><label class="labels">
+                      Address:</label>{{state.adress}}
+                </div>
+                  <div class="col-md-12"><label class="labels"
+                    >Phone Number</label>{{state.phoneNumber}}
+                </div>
 
                 </div>
               </div>
@@ -28,9 +48,128 @@
       </div>
       <div class="col-md-4">
           <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience"><span>create store</span><span class="border px-3 p-1 add-experience" [routerLink]="['/form-store']"><i class="fa fa-plus"></i>&nbsp;create Now</span></div><br>
+              <div class="d-flex justify-content-between align-items-center experience">
+                  <span>create store</span><span class="border px-3 p-1 add-experience" [routerLink]="['/form-store']">
+                      <i class="fa fa-plus"></i>&nbsp;create Now
+                    </span>
+                </div><br>
           </div>
       </div>
   </div>
 </div>
+ -->
+ <div class="profile user-profile">
+  
+    <div class="profiles_banner">
+        <img src="assets/images/avatars/profile-cover.jpg" alt="">
+        <div class="profile_action absolute bottom-0 right-0 space-x-1.5 p-3 text-sm z-50 hidden lg:flex">
+          <a href="#" class="flex items-center justify-center h-8 px-3 rounded-md bg-gray-700 bg-opacity-70 text-white space-x-1.5"> 
+              <span> Crop  </span>
+          </a>
+          <a href="#" class="flex items-center justify-center h-8 px-3 rounded-md bg-gray-700 bg-opacity-70 text-white space-x-1.5"> 
+              
+              <span> Edit </span>
+          </a>
+      </div>
+    </div>
+    <div class="profiles_content" >
 
+        <div class="profile_avatar">
+            <div class="profile_avatar_holder"> 
+                <img src="assets/images/avatars/avatar-8.jpg" alt="">
+            </div>
+            <div class="user_status status_online"></div>
+           
+        </div>
+
+        <div class="profile_info">
+            <h1> {{state.firstName}} {{state.lastName}} </h1>
+            <p> {{state.phoneNumber}} ,{{state.email}} <a  [routerLink]="['/update-profile']">Edit </a></p>
+        </div>
+
+    </div>
+
+    <div class="flex justify-between lg:border-t border-gray-100 flex-col-reverse lg:flex-row pt-2">
+        <nav class="responsive-nav pl-3">
+            <ul  uk-switcher="connect: #timeline-tab; animation: uk-animation-fade">
+                <li><a href="hello">your pets</a ></li>
+                
+                <li><a href="#">Store</a></li>
+
+            </ul>
+        </nav>
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Store Registration</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Store Name</label>
+                                <input type="text" class="form-control" placeholder="enter store name" 
+                                (change)="onChangeStoreName($event)"
+                                ></div>
+                            
+                                <div class="col-md-12"><label class="labels">Store Logo</label>
+                                    <input type="file" class="form-control" 
+                                    (change)="onChangeStoreLogo($event)"></div>
+                            
+                            <div class="col-md-12"><label class="labels">Tax Registration Number</label>
+                                <input type="text" class="form-control" placeholder="enter text registration number"
+                                (change)="onChangetaxRegistrationNumber($event)" ></div>
+                            
+                                <div class="col-md-12"><label class="labels">Tax Registration Image</label>
+                                    <input type="file" class="form-control"
+                                    (change)="onChangetaxRegistrationNumbzerImage($event)" ></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" 
+                            type="button"
+                            (click)="formStore()">Send</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Add an Item</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Item Name</label><input type="text" class="form-control"
+                                placeholder="enter store name" 
+                                (change) ="onChangeName($event)"
+                                value=""></div>
+                            
+                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control" ></div>
+                            
+                            <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
+                                 placeholder="enter text registration number" value=""
+                                 (change) ="onChangePrice($event)"></div>
+                
+                                 <div class="col-md-12"><label class="labels">Item Description</label><input type="text"
+                                     class="form-control"
+                                     (change) ="onChangeDescription($event)"
+                                      ></div>
+                            
+                                      <div class="col-md-12"><label class="labels">Category</label><input type="text" 
+                                        class="form-control"
+                                        (change) ="onChangeCategory($event)"
+                                        ></div>
+        
+                        <div class="col-md-12"><label class="labels">Quantity</label><input type="number" 
+                            class="form-control" 
+                            (change) ="onChangeQuantity($event)"
+                            ></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" 
+                            type="button"
+                            (click)="postAddItem()"
+                            >Add</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

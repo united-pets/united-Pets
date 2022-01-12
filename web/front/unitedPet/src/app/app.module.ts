@@ -1,38 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { AngularFireModule } from '@angular/fire/compat/';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsComponent } from './items/items.component';
-;
 import { ProfileComponent } from './profile/profile.component';
-
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
 import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddItemsToStoreComponent } from './add-items-to-store/add-items-to-store.component';
+import { StoreComponent } from './store/store.component';
+import { AddPetsComponent } from './add-pets/add-pets.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
+import { OnePostComponent } from './one-post/one-post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
-
     ProfileComponent,
     UpdateProfileComponent,
     AddPostComponent,
@@ -41,10 +41,15 @@ import { ContactComponent } from './contact/contact.component';
     PostsComponent,
     NavbarComponent,
     FooterComponent,
+    GoogleMapComponent,
     FormStoreComponent,
     HomeComponent,
     ContactComponent,
-    
+    AddItemsToStoreComponent,
+    StoreComponent,
+    AddPetsComponent,
+    UpdatePostComponent,
+    OnePostComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,8 @@ import { ContactComponent } from './contact/contact.component';
       messagingSenderId: '433767512994',
       appId: '1:433767512994:web:6f29ec9d65c24b949690fb',
       measurementId: 'G-FYJLH15TVJ',
+
+      
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
