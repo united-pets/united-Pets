@@ -1,5 +1,12 @@
 -- MySQL Workbench Forward Engineering
 -- mysql -u root -p  < server/database/schema.sql
+
+DROP database IF EXISTS `mydb` ;
+CREATE DATABASE `mydb`;
+USE `mydb`;
+
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -11,9 +18,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-DROP database IF EXISTS `mydb` ;
-CREATE DATABASE `mydb`;
-USE `mydb`;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`users`
@@ -43,25 +49,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Stores` (
   `user_iduser` INT NOT NULL,
   `taxRegistrationNumbzerImage` VARCHAR(500) NULL DEFAULT NULL,
   PRIMARY KEY (`idStore`, `user_iduser`),
-  INDEX `fk_Store_user1_idx` (`user_iduser` ASC) VISIBLE,
-  CONSTRAINT `fk_Store_user1`
-    FOREIGN KEY (`user_iduser`)
-    REFERENCES `mydb`.`users` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`sales`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`sales` (
-  `idsales` INT NOT NULL AUTO_INCREMENT,
-  `user_iduser` INT NOT NULL,
-  `salescol` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`idsales`, `user_iduser`),
-  INDEX `fk_sales_user1_idx` (`user_iduser` ASC) VISIBLE,
-  CONSTRAINT `fk_sales_user1`
+  INDEX `fk_Store_user_idx` (`user_iduser` ASC) VISIBLE,
+  CONSTRAINT `fk_Store_user`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
@@ -81,20 +70,38 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
   `ItemCategory` VARCHAR(20) NULL DEFAULT NULL,
   `quantity` INT NULL DEFAULT NULL,
   `Store_idStore` INT NOT NULL,
-  `sales_idsales` INT UNIQUE,
-  PRIMARY KEY (`idItems`, `Store_idStore`, `sales_idsales`),
+  PRIMARY KEY (`idItems`, `Store_idStore`),
   INDEX `fk_Items_Store1_idx` (`Store_idStore` ASC) VISIBLE,
-  INDEX `fk_Items_sales1_idx` (`sales_idsales` ASC) VISIBLE,
   CONSTRAINT `fk_Items_Store1`
     FOREIGN KEY (`Store_idStore`)
     REFERENCES `mydb`.`Stores` (`idStore`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Items_sales1`
-    FOREIGN KEY (`sales_idsales`)
-    REFERENCES `mydb`.`sales` (`idsales`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`sales`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`sales` (
+  `idsales` INT NOT NULL AUTO_INCREMENT,
+  `user_iduser` INT NOT NULL,
+  `salescol` VARCHAR(45) NULL DEFAULT NULL,
+  `Items_idItems` INT NOT NULL,
+  PRIMARY KEY (`idsales`, `user_iduser`),
+  INDEX `fk_sales_user1_idx` (`user_iduser` ASC) VISIBLE,
+  INDEX `fk_sales_Items1_idx` (`Items_idItems` ASC) VISIBLE,
+  CONSTRAINT `fk_sales_user1`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `mydb`.`users` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_sales_Items1`
+    FOREIGN KEY (`Items_idItems`)
+    REFERENCES `mydb`.`Items` (`idItems`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    )
 ENGINE = InnoDB;
 
 
@@ -104,18 +111,20 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
-  `AnimalName` VARCHAR(20) NULL DEFAULT NULL,
+  `AnimalName` VARCHAR(255) NULL DEFAULT NULL,
   `AnimalDescription` VARCHAR(1000) NULL DEFAULT NULL,
   `AnimalLocalisation` VARCHAR(20) NULL DEFAULT NULL,
-  `user_iduser` INT NOT NULL DEFAULT 1,
+  `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `user_iduser`),
-  INDEX `fk_Posts_user1_idx` (`user_iduser` ASC) VISIBLE,
-  CONSTRAINT `fk_Posts_user1`
+  INDEX `fk_Posts_user_idx` (`user_iduser` ASC) VISIBLE,
+  CONSTRAINT `fk_Posts_user`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `mydb`.`comments`
 -- -----------------------------------------------------

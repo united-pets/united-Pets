@@ -37,15 +37,20 @@ onChangeQuantity(event:any){
 }
 // send post request for adding Item to the db store 
 postAddItem(){
-  let item = {
-    itemName :this.itemName,
+let item = {
+itemName :this.itemName,
 itemImage :this.itemImage,
 itemPrice :this.itemPrice,
 itemDescription: this.itemDescription,
 itemCategory: this.itemCategory,
 itemQuantity: this.itemQuantity
-  
 }
 this.http.post('http://localhost:3000/add-items-to-store',item )
+.subscribe({next:((Response:any)=>{
+     console.log(Response)
+}),
+error:error=>{
+  console.error(error)
+}})
  }
 }

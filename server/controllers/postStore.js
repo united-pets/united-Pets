@@ -10,13 +10,21 @@ module.exports = {
                 req.body.taxRegistrationNumber,
                 req.body.taxRegistrationNumbzerImage,
                 req.body.user_iduser
-             
               ],
               (err, result) => {
                 if (err) {
                   console.log(err);
                 } else {
-                  res.send(result);
+                  db.query(
+                            "SELECT * FROM `Stores` INNER JOIN `users` ON `user_iduser` =  `user_iduser`",
+                               (err, result) => {
+                          if (err) {
+                          console.log(err);
+                          } else {
+                           res.send(result);
+                    }
+                    }
+                    );
                 }
               }
             );

@@ -1,27 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { AngularFireModule } from '@angular/fire/compat/';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsComponent } from './items/items.component';
-;
 import { ProfileComponent } from './profile/profile.component';
-
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -39,7 +33,6 @@ import { OnePostComponent } from './one-post/one-post.component';
   declarations: [
     AppComponent,
     ItemsComponent,
-
     ProfileComponent,
     UpdateProfileComponent,
     AddPostComponent,
@@ -56,8 +49,7 @@ import { OnePostComponent } from './one-post/one-post.component';
     StoreComponent,
     AddPetsComponent,
     UpdatePostComponent,
-    OnePostComponent,
-    
+    OnePostComponent
   ],
   imports: [
     BrowserModule,
@@ -94,8 +86,6 @@ import { OnePostComponent } from './one-post/one-post.component';
     }),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-  //  GoogleMapsModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent],

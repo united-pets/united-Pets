@@ -3,7 +3,7 @@ module.exports = {
     PostOne: (req, res) => {
             console.log(req.body);
             db.query(
-              "insert into `Items` (`ItemName`,`ItemImage`,`ItemPrice`,`ItemDescription`,`ItemCategory`,`quantity`,`Store_idStore`,`sales_idsales` ) values(?,?,?,?,?,?,?,?)",
+              "insert into `Items` (`ItemName`,`ItemImage`,`ItemPrice`,`ItemDescription`,`ItemCategory`,`quantity`,`Store_idStore`) values(?,?,?,?,?,?,?)",
               [
                 req.body.itemName,
                 req.body.itemImage,
@@ -12,7 +12,6 @@ module.exports = {
                 req.body.itemCategory,
                 req.body.quantity,
                 req.body.Store_idStore,
-                req.body.sales_idsales
               ],
               (err, result) => {
                 if (err) {
