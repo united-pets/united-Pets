@@ -11,11 +11,11 @@ import { FormStoreComponent } from './form-store/form-store.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddItemsToStoreComponent } from './add-items-to-store/add-items-to-store.component';
-
+import { StoreComponent } from './store/store.component';
 import { AddPetsComponent } from './add-pets/add-pets.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { OnePostComponent } from './one-post/one-post.component';
-import { StoreComponent } from './store/store.component';
+
 const routes: Routes = [
   {
     path: 'profile',

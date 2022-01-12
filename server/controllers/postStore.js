@@ -10,6 +10,7 @@ module.exports = {
                 req.body.taxRegistrationNumber,
                 req.body.taxRegistrationNumbzerImage,
                 req.body.user_iduser
+             
               ],
               (err, result) => {
                 if (err) {
