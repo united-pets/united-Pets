@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Stores` (
   `StoreLogo` VARCHAR(500) NULL DEFAULT NULL,
   `taxRegistrationNumber` VARCHAR(20) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
-  `taxRegistrationNumbzerImage` VARCHAR(255) NULL DEFAULT NULL,
+  `taxRegistrationNumbzerImage` VARCHAR(500) NULL DEFAULT NULL,
   PRIMARY KEY (`idStore`, `user_iduser`),
   INDEX `fk_Store_user_idx` (`user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_Store_user`
@@ -100,7 +100,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`sales` (
     FOREIGN KEY (`Items_idItems`)
     REFERENCES `mydb`.`Items` (`idItems`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+    )
 ENGINE = InnoDB;
 
 
@@ -132,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comments` (
   `animalName` VARCHAR(15) NULL DEFAULT NULL,
   `race` VARCHAR(10) NULL DEFAULT NULL,
   `color` VARCHAR(10) NULL DEFAULT NULL,
-  `localisation` VARCHAR(30) NULL DEFAULT NULL,
+  `localisation` VARCHAR(100) NULL DEFAULT NULL,
   `Posts_idPosts` INT NOT NULL,
   `user_iduser` INT NOT NULL,
   `comments_idcomments` INT NOT NULL,
