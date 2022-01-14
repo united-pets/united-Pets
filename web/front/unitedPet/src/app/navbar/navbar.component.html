@@ -3,7 +3,7 @@
               <div class="container-fluid">
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
                 <a class="navbar-brand" href="index.html">
-                  <img class="img-fluid logo" src="images/logo.svg" alt="Main logo">
+                  <img class="img-fluid logo" src="assets\images\service-logo.png" alt="Main logo"><span>United-Pets</span>
                   <img class="img-fluid logo-sticky" src="images/logo-dark.svg" alt="Logo responsive and sticky">
                 </a>
                 <div class="navbar-collapse collapse justify-content-center">
@@ -15,13 +15,13 @@
                       <a class="nav-link" href="javascript:void(0)" data-bs-toggle="dropdown"  [routerLink]="['/Store']">shop<i class="fas fa-chevron-down fa-xs"></i></a>
                           
                         </li>
-
+               
                    
                     <li class="dropdown nav-item">
                       <a class="nav-link" href="javascript:void(0)"  data-bs-toggle="dropdown" [routerLink]="['/posts']">find you lost pet<i class="fas fa-chevron-down fa-xs"></i></a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item"  [routerLink]="['/addPost']" >add a lost pet</a></li>
-                        <li><a class="dropdown-item"  [routerLink]="['/posts']">see lost pets</a></li>
+                        <li><a class="dropdown-item"  [routerLink]="['/addPost']"   *ngIf="this.shared.addLost" >add a lost pet</a></li>
+                        <li><a class="dropdown-item"  [routerLink]="['/posts']"> see lost pets</a></li>
                       </ul>
                     </li>
                     <li class="dropdown nav-item">

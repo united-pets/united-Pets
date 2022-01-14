@@ -29,7 +29,7 @@ var pets = require('./routers/pets.js')
 
 
 app.use("/",test);
-app.use("/items",items);
+app.use("/",items);
 app.use("/",signup);
 app.use("/",login);
 app.use("/",updateProfile);
