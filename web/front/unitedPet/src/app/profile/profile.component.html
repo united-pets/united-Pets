@@ -113,7 +113,9 @@
                             
                                 <div class="col-md-12"><label class="labels">Store Logo</label>
                                     <input type="file" class="form-control" 
-                                    (change)="onChangeStoreLogo($event)"></div>
+                                    (change)="onChangeStoreLogo($event)" (change)="image($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage()">upload my image </button>
+                                </div>
                             
                             <div class="col-md-12"><label class="labels">Tax Registration Number</label>
                                 <input type="text" class="form-control" placeholder="enter text registration number"
@@ -121,7 +123,9 @@
                             
                                 <div class="col-md-12"><label class="labels">Tax Registration Image</label>
                                     <input type="file" class="form-control"
-                                    (change)="onChangetaxRegistrationNumbzerImage($event)" ></div>
+                                    (change)="onChangetaxRegistrationNumbzerImage($event)" (change)="image($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage()">upload my image </button>
+                                </div>
                         </div>
                         <div class="mt-5 text-center"><button class="btn btn-primary profile-button" 
                             type="button"
@@ -143,7 +147,9 @@
                                 (change) ="onChangeName($event)"
                                 value=""></div>
                             
-                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control" ></div>
+                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control"(change)="image($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage()">upload my image </button>
+                                </div>
                             
                             <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
                                  placeholder="enter text registration number" value=""

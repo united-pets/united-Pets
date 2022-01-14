@@ -3,6 +3,8 @@ import { profile } from '../profile';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormStoreComponent } from '../form-store/form-store.component';
+import { AngularFireStorage}from '@angular/fire/compat/storage'
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -25,7 +27,10 @@ itemPrice = '';
 itemDescription='';
 itemCategory='';
 itemQuantity = '';
-  constructor(private router : Router, private http : HttpClient) {
+path: string = '';
+petImgUrl: String = '';
+
+  constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
     console.log(this.state);
   }
@@ -52,6 +57,29 @@ itemQuantity = '';
     error: error => console.log('errorrr',error)
   });
   
+}
+// uplode from photos
+upload(event: any) {
+  this.path = event.target.files[0];
+  console.log(this.path)
+}
+uploadImage() {
+  console.log(this.path);
+  
+  this.af
+    .upload('path' + Math.random() + this.path, this.path)
+    .then((response) => {
+      console.log('response :', response);
+      response.ref.getDownloadURL().then((res) => {
+        console.log(res);
+        this.path = res;
+        this.petImgUrl=res
+      });
+    });
+}
+image(event: any){
+  console.log(event.target.value);
+  this.petImgUrl = event.target.value;
 }
 //store registration
 onChangeStoreName(event:any){
