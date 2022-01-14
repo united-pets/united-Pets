@@ -16,3 +16,4 @@ export const profile = [
         imageUrl:"https://img.freepik.com/photos-gratuite/bel-homme-souriant-confiant-mains-croisees-poitrine_176420-18743.jpg?size=626&ext=jpg"
     }
 ]
+

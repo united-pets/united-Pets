@@ -17,7 +17,28 @@ module.exports={
                        return res.send("password is wrong")
                     }else{
                         if(response){
-                        res.send(result)
+                         res.send(result)
+    //                        db.query(
+    //                     "SELECT * FROM `Posts` INNER JOIN `users` ON `user_iduser` =  `user_iduser`",
+    //                        (err, result) => {
+    //                   if (err) {
+    //                   console.log(err);
+    //                   } else {
+    //                    res.send(result);
+    //           }
+    //       }
+    //   );
+//       db.query(
+//         "SELECT * FROM `Stores` INNER JOIN `users` ON `user_iduser` =  `user_iduser`",
+//            (err, result) => {
+//       if (err) {
+//       console.log(err);
+//       } else {
+//        res.send(result);
+// }
+// }
+// );
+  
                     }
                     }
                   })}
