@@ -41,21 +41,22 @@ petImgUrl: String = '';
 
   
   ngOnInit(): void {
+    this.getItems()
   this.state= JSON.parse(localStorage.getItem('session')||'');
   
   // console.log(this.state)
   // console.log(localStorage) ;
-  this.http.get<any>(`http://localhost:3000/profile`
+  // this.http.get<any>(`http://localhost:3000/profile`
   
-  )
+  // )
   
-  .subscribe({
-    next: Response => {
-      //  this.item = Response;
-      console.log("itemsssss", Response);
-    },
-    error: error => console.log('errorrr',error)
-  });
+  // .subscribe({
+  //   next: Response => {
+  //     //  this.item = Response;
+  //     console.log("itemsssss", Response);
+  //   },
+  //   error: error => console.log('errorrr',error)
+  // });
   
 }
 // uplode from photos
@@ -144,6 +145,20 @@ let item = {
   Store_idStore: JSON.parse(y)[0].idStore,
 }
 this.http.post('http://localhost:3000/add-items-to-store',item )
+.subscribe({next:((Response:any)=>{
+     console.log(Response)
+}),
+error:error=>{
+  console.error(error)
+}})
+ }
+ //get Items
+ getItems(){
+  let y = localStorage.getItem('store') as string
+ 
+    let Store_idStore = JSON.parse(y)[0].idStore
+ 
+  this.http.get(`http://localhost:3000/storeItem`, Store_idStore)
 .subscribe({next:((Response:any)=>{
      console.log(Response)
 }),
