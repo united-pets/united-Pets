@@ -4,6 +4,7 @@ const saltRounds = 10;
 module.exports={
   
         Signup : (req,res)=>{
+            console.log(req.body);
                 db.query('select `iduser` from users where `firstName`',[req.body.firstName],(err,result)=>{
                     if(result.length!==0){
                         res.json('username exists')

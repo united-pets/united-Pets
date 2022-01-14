@@ -14,7 +14,7 @@ export class PostsComponent implements OnInit {
   AnimalImage: String = '';
   // Posts = Posts;
   Posts: any = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ) {}
 
   ngOnInit(): void {
     this.http
