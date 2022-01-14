@@ -81,6 +81,7 @@ export class UpdateProfileComponent implements OnInit {
       .subscribe({
         next:Response =>{
           console.log('edited',Response)
+          localStorage.setItem('session',Response)
           this.router.navigateByUrl('profile')     
         
         },
@@ -99,8 +100,8 @@ export class UpdateProfileComponent implements OnInit {
     // this.iduser = JSON.parse(y)[0].iduser;
     // console.log(y)
     // this.getuserData();
-  this.state= JSON.parse(localStorage.getItem('session')||'');
-
+  this.state = JSON.parse(localStorage.getItem('session')||'');
+  
   }
 
       
