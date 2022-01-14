@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AddPostService {
-
+  
   constructor() { }
-  // logger(data) {
-  //   console.log(data)
-  // }
+
 }

@@ -50,6 +50,7 @@ module.exports = {
         
       } else {
         console.log(err);
+        res.send('error while fetching data')
       }
     });
   },
