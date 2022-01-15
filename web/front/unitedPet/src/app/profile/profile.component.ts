@@ -27,8 +27,12 @@ itemPrice = '';
 itemDescription='';
 itemCategory='';
 itemQuantity = '';
-path: string = '';
-petImgUrl: String = '';
+pathLogoStore: String = '';
+pathRegistration : String = ''
+LogoStore: String = '';
+ImageRegistration : String = '';
+ImageItem : String = '';
+patheImageItem : String = ''
 
   constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
@@ -59,28 +63,67 @@ petImgUrl: String = '';
   // });
   
 }
-// uplode from photos
+// uplode from photos Store Logo
 upload(event: any) {
-  this.path = event.target.files[0];
-  console.log(this.path)
+  this.pathLogoStore = event.target.files[0];
+  console.log(this.pathLogoStore)
 }
 uploadImage() {
-  console.log(this.path);
+  console.log(this.pathLogoStore);
   
   this.af
-    .upload('path' + Math.random() + this.path, this.path)
+    .upload('path' + Math.random() + this.pathLogoStore, this.pathLogoStore)
     .then((response) => {
       console.log('response :', response);
       response.ref.getDownloadURL().then((res) => {
         console.log(res);
-        this.path = res;
-        this.petImgUrl=res
+        this.pathLogoStore = res;
+        this.LogoStore=res
       });
     });
 }
 image(event: any){
   console.log(event.target.value);
-  this.petImgUrl = event.target.value;
+  this.LogoStore = event.target.value;
+}
+// uplode from photos Tax Registration Image
+
+uploadImage1() {
+  console.log('pathRegistration======>',this.pathRegistration);
+  
+  this.af
+    .upload('path' + Math.random() + this.pathRegistration, this.pathRegistration)
+    .then((response : any) => {
+      console.log('response1 :', response);
+      response.ref.getDownloadURL().then((res : any) => {
+        console.log(res);
+        this.pathRegistration = res;
+        this.ImageRegistration=res
+      });
+    });
+}
+image1(event: any){
+  console.log('ImageRegistration====>',event.target.value);
+  this.ImageRegistration = event.target.value;
+}
+//uplode from photos Tax ImageItem
+uploadImage2() {
+  console.log('patheImageItem ===>',this.patheImageItem);
+  
+  this.af
+    .upload('path' + Math.random() + this.patheImageItem, this.patheImageItem)
+    .then((response : any) => {
+      console.log('response1 :', response);
+      response.ref.getDownloadURL().then((res : any) => {
+        console.log(res);
+        this.patheImageItem = res;
+        this.ImageItem=res
+      });
+    });
+}
+image2(event: any){
+  console.log('ImageItem ===>',event.target.value);
+  this.ImageItem = event.target.value;
 }
 //store registration
 onChangeStoreName(event:any){
