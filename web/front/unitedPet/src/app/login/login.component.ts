@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     this.shared.islogged
     this.shared.log
     this.shared.profile
+    this.shared.addLost
   }
   login(){
     
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
       this.shared.islogged=false
       this.shared.log=true
       this.shared.profile=true
+      this.shared.addLost=true
     }),
     error:error=>{
       console.error(error)

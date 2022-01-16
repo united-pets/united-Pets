@@ -12,7 +12,7 @@
     </div>
   </section>
   
-                           <div class="col-lg-8">
+                           <!-- <div class="col-lg-8">
                             <div class="standard-blog-item" *ngFor="let Post of Posts" >
                                 <div class="standard-blog-thumb">
                                     <a href="blog-details.html"><img src="assets/img/blog/blog_thumb01.jpg" alt=""></a>
@@ -32,5 +32,22 @@
                                     <p>{{Post.AnimalDescription}}</p>
                                     <a href="blog-details.html" class="read-more">Read More <img src="assets/img/icon/pawprint.png" alt=""></a>
                                 </div>
-                            </div>
+                            </div> -->
+                            <section class="space-ptb">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="h">
+                                    <div class="blog-post"  *ngFor="let Post of Posts" >
+                                      <div class="blog-post-image">
+                                        <img class="img-fluid" src={{Post.AnimalImage}} alt="">
+                                      </div>
+                                      <div class="blog-post-content">
+                                        <div class="blog-post-date">{{Post.AnimalName}}</div>
+                                        <h6 class="blog-post-title"><a>{{Post.AnimalDescription}}</a></h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                              </div>
+                            </section>
                             

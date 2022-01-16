@@ -11,12 +11,14 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.profile
+    this.shared.addLost
   }
 logout(){
   localStorage.clear()
   this.shared.islogged=true
   this.shared.log=false
   this.shared.profile=false
+  this.shared.addLost=false
 }
 
 
