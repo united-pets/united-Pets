@@ -45,8 +45,8 @@ app.post('/email', (req, res) =>{
     let mailOption ={
       from : 'all.in.one.customer.services@gmail.com',
       to : data.email,
-      subject : 'welcome to auction house',
-      html: `<h3>thank you for enjoy us </h3>
+      subject : 'welcome to UnitedPets',
+      html: `<h3>thank you for enjoy UnitedPets </h3>
             
       <h3>you can concatc us phone : 50915806</h3>`
     };
