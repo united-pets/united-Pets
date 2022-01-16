@@ -67,7 +67,7 @@ export class UpdateProfileComponent implements OnInit {
       adress : this.adress,
       imageUrl : this.imageUrl
     };
-    // console.log(data);
+    console.log(data);
     
     let y = localStorage.getItem('session') as string;
     var id = JSON.parse(y).iduser;
