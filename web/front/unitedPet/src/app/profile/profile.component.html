@@ -3,65 +3,10 @@
 
     </div>
   </section>
-<!-- <div class="container rounded bg-white mt-5 mb-5">
-  <div class="row">
-      <div class="col-md-3 border-right" *ngFor="let profile of profile">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img class="rounded-circle mt-5" width="150px" src={{state.imageUrl}}>
-              <span class="font-weight-bold">{{state.firstName}} {{state.lastName}}</span>
-              <span class="text-black-50">{{state.email}}</span>
-              <span class="text-black-50">{{state.phoneNumber}}</span>
-            </div>
-      </div>
-      <div class="col-md-5 border-right">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">Profile Settings</h4>
-              </div>
-             
-              
-              <div class="row mt-3" *ngFor="let profile of profile">
-                <div >
-                 <div class="col-md-6" >
-                     <label class="labels">Name:</label>
-                     {{state.firstName}} {{state.lastName}}
-                    </div>
-                  <div class="col-md-12">
-                      <label class="labels">
-                          email:</label>{{state.email}}
-                        </div>
-                  <div class="col-md-12"><label class="labels">
-                      Address:</label>{{state.adress}}
-                </div>
-                  <div class="col-md-12"><label class="labels"
-                    >Phone Number</label>{{state.phoneNumber}}
-                </div>
-
-                </div>
-              </div>
-              <div class="mt-5 text-center">
-                  <button class="btn btn-primary profile-button" type="button" [routerLink]="['/update-profile']"  > 
-                       edit
-                    </button>
-                </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience">
-                  <span>create store</span><span class="border px-3 p-1 add-experience" [routerLink]="['/form-store']">
-                      <i class="fa fa-plus"></i>&nbsp;create Now
-                    </span>
-                </div><br>
-          </div>
-      </div>
-  </div>
-</div>
- -->
  <div class="profile user-profile">
   
     <div class="profiles_banner">
-        <img src="assets/images/avatars/profile-cover.jpg" alt="">
+        <img src={{state.imageUrl}} alt="">
         <div class="profile_action absolute bottom-0 right-0 space-x-1.5 p-3 text-sm z-50 hidden lg:flex">
           <a href="#" class="flex items-center justify-center h-8 px-3 rounded-md bg-gray-700 bg-opacity-70 text-white space-x-1.5"> 
               <span> Crop  </span>
@@ -76,7 +21,7 @@
 
         <div class="profile_avatar">
             <div class="profile_avatar_holder"> 
-                <img src="assets/images/avatars/avatar-8.jpg" alt="">
+                <img src={{state.imageUrl}} alt="">
             </div>
             <div class="user_status status_online"></div>
            
@@ -113,7 +58,9 @@
                             
                                 <div class="col-md-12"><label class="labels">Store Logo</label>
                                     <input type="file" class="form-control" 
-                                    (change)="onChangeStoreLogo($event)"></div>
+                                    (change)="onChangeStoreLogo($event)" (change)="image($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage()">upload my image </button>
+                                </div>
                             
                             <div class="col-md-12"><label class="labels">Tax Registration Number</label>
                                 <input type="text" class="form-control" placeholder="enter text registration number"
@@ -121,7 +68,9 @@
                             
                                 <div class="col-md-12"><label class="labels">Tax Registration Image</label>
                                     <input type="file" class="form-control"
-                                    (change)="onChangetaxRegistrationNumbzerImage($event)" ></div>
+                                    (change)="onChangetaxRegistrationNumbzerImage($event)" (change)="image1($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage1()">upload my image </button>
+                                </div>
                         </div>
                         <div class="mt-5 text-center"><button class="btn btn-primary profile-button" 
                             type="button"
@@ -143,7 +92,9 @@
                                 (change) ="onChangeName($event)"
                                 value=""></div>
                             
-                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control" ></div>
+                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control"(change)="image2($event)"  (change)="upload($event)" >
+                                    <button  (click)="uploadImage2()">upload my image </button>
+                                </div>
                             
                             <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
                                  placeholder="enter text registration number" value=""

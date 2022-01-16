@@ -401,7 +401,10 @@ p {
   color: #fcdb02 !important; }
 
 .text-white {
-  color: #ffffff; }
+  color: #ffffff; 
+margin-left: 7ch;
+margin-top: 10ch;
+}
 
 .text-dark {
   color: #214d63 !important; }
