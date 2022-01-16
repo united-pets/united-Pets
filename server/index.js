@@ -32,7 +32,7 @@ const nodemailer = require ('nodemailer')
 
 app.post('/email', (req, res) =>{
     var data = req.body;
-    
+    console.log(data);
   
     let smpTransport = nodemailer.createTransport({
       service : 'Gmail',
@@ -47,7 +47,7 @@ app.post('/email', (req, res) =>{
       to : data.email,
       subject : 'welcome to auction house',
       html: `<h3>thank you for enjoy us </h3>
-            <img scr = "https://www.logomyway.com/logos_new/3992/FULL_HOUSE_AUCTION_05_small.png" />
+            
       <h3>you can concatc us phone : 50915806</h3>`
     };
     smpTransport.sendMail(mailOption,(err, response) =>{
