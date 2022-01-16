@@ -89,7 +89,7 @@ image(event: any){
 // uplode from photos Tax Registration Image
 
 uploadImage1() {
-  console.log('pathRegistration======>',this.pathRegistration);
+  // console.log('pathRegistration======>',this.pathRegistration);
   
   this.af
     .upload('path' + Math.random() + this.pathRegistration, this.pathRegistration)
@@ -99,6 +99,7 @@ uploadImage1() {
         console.log(res);
         this.pathRegistration = res;
         this.ImageRegistration=res
+        console.log(this.ImageRegistration)
       });
     });
 }
@@ -117,7 +118,8 @@ uploadImage2() {
       response.ref.getDownloadURL().then((res : any) => {
         console.log(res);
         this.patheImageItem = res;
-        this.ImageItem=res
+        this.itemImage=res
+        console.log('hhhhh',this.itemImage)
       });
     });
 }
