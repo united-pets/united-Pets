@@ -27,6 +27,40 @@ var postStore = require('./routers/postStore')
 var post = require('./routers/posts.js');
 var pets = require('./routers/pets.js')
 
+const nodemailer = require ('nodemailer')
+
+
+app.post('/email', (req, res) =>{
+    var data = req.body;
+    
+  
+    let smpTransport = nodemailer.createTransport({
+      service : 'Gmail',
+      port: 465,
+      auth :{
+        user: 'all.in.one.customer.services@gmail.com',
+        pass : 'Azerty123+'
+      }
+    });
+    let mailOption ={
+      from : 'all.in.one.customer.services@gmail.com',
+      to : data.email,
+      subject : 'welcome to auction house',
+      html: `<h3>thank you for enjoy us </h3>
+            <img scr = "https://www.logomyway.com/logos_new/3992/FULL_HOUSE_AUCTION_05_small.png" />
+      <h3>you can concatc us phone : 50915806</h3>`
+    };
+    smpTransport.sendMail(mailOption,(err, response) =>{
+      if(err){
+        res.send('errorrrrr')
+      }else{
+        res.send('success')
+      }
+    })
+    smpTransport.close()
+  })
+  
+
 
 app.use("/",test);
 app.use("/items",items);
