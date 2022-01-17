@@ -5,8 +5,6 @@ const nodemailer = require ('nodemailer')
 module.exports={
     post:( (req, res) =>{
         var data = req.body;
-        console.log(data);
-      
         let smpTransport = nodemailer.createTransport({
           service : 'Gmail',
           port: 465,
