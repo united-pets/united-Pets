@@ -122,13 +122,13 @@ uploadImage() {
       response.ref.getDownloadURL().then((res) => {
         console.log(res);
         this.pathLogoStore = res;
-        this.LogoStore=res
+        this.storeLogo=res
       });
     });
 }
 image(event: any){
   console.log(event.target.value);
-  this.LogoStore = event.target.value;
+  this.storeLogo = event.target.value;
 }
 // uplode from photos Tax Registration Image
 
@@ -143,13 +143,13 @@ uploadImage1() {
         console.log(res);
         this.pathRegistration = res;
         this.ImageRegistration=res
-        console.log(this.ImageRegistration)
+        console.log(this.taxRegistrationNumbzerImage)
       });
     });
 }
 image1(event: any){
-  console.log('ImageRegistration====>',event.target.value);
-  this.ImageRegistration = event.target.value;
+  console.log('taxRegistrationNumbzerImage====>',event.target.value);
+  this.taxRegistrationNumbzerImage = event.target.value;
 }
 //uplode from photos Tax ImageItem
 uploadImage2() {
@@ -169,7 +169,7 @@ uploadImage2() {
 }
 image2(event: any){
   console.log('ImageItem ===>',event.target.value);
-  this.ImageItem = event.target.value;
+  this.itemImage = event.target.value;
 }
 //store registration
 onChangeStoreName(event:any){
