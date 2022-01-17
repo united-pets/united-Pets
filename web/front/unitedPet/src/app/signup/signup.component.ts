@@ -75,7 +75,7 @@ export class SignupComponent implements OnInit {
 
 
 
-  forgot(): void{
+  verificationEmail(): void{
     
     var url =' http://localhost:3000/email';
     this.http.post(url,{
@@ -89,7 +89,7 @@ export class SignupComponent implements OnInit {
 
 
   comp(){
-    this.forgot()
+    this.verificationEmail()
     this.signup()
   }
 
