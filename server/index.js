@@ -73,7 +73,7 @@ app.use("/",userData);
 app.use("/",postItem);
 app.use("/",postStore);
 app.use('/',pets)
-app.use('/email',Email)
+app.use('/',Email)
 
 //session 
 // var options = {
