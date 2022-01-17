@@ -35,7 +35,7 @@ ImageItem : String = '';
 patheImageItem : String = ''
 
 paymentHandler:any = null;
-
+configure : any =null
   constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
     console.log(this.state);
@@ -71,7 +71,7 @@ paymentHandler:any = null;
 // this is the functions related to the stripe api for the payment 
 makePayment(amount:any) {
   const paymentHandler = (<any>window).StripeCheckout.configure({
-    key: 'pk_test_51K5AeAI8HBYKtbzFQjaXDSmaCOcULlIcKAqn8hsX2xe12CgeoXY8C4GpTbkDY2ZaU4rLAfWplKjP2dMpk4xXGGQv00NLMjIBbM',
+    key: 'pk_test_51KIvKUFKhxMDKsg6HjVqi8gc3Ove3gY80VzQHryk8F4G3s5KA6jbqVMyYInEHIiIbS0N2lQjK5qotNFtngEGEv2h00K3o8nvvp',
     locale: 'auto',
     token: function (stripeToken: any) {
       console.log(stripeToken)
@@ -92,7 +92,7 @@ invokeStripe() {
     script.src = "https://checkout.stripe.com/checkout.js";
     script.onload = () => {
       this.paymentHandler = (<any>window).StripeCheckout.configure({
-        key: 'pk_test_51K5AeAI8HBYKtbzFQjaXDSmaCOcULlIcKAqn8hsX2xe12CgeoXY8C4GpTbkDY2ZaU4rLAfWplKjP2dMpk4xXGGQv00NLMjIBbM',
+        key: 'pk_test_51KIvKUFKhxMDKsg6HjVqi8gc3Ove3gY80VzQHryk8F4G3s5KA6jbqVMyYInEHIiIbS0N2lQjK5qotNFtngEGEv2h00K3o8nvvp',
         locale: 'auto',
         token: function (stripeToken: any) {
           console.log(stripeToken)
