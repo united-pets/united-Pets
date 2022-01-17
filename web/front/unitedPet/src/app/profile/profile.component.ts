@@ -35,7 +35,7 @@ ImageItem : String = '';
 patheImageItem : String = ''
 
 paymentHandler:any = null;
-configure : any =null
+// configure : any =null
   constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
     console.log(this.state);
