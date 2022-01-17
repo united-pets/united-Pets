@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
     error:error=>{
       console.error(error)
     }})
+    console.log('work');
     
     
     
@@ -68,6 +69,27 @@ export class SignupComponent implements OnInit {
   Img(event:any){
     console.log(event.target.value)
     this.imageUrl= event.target.value
+  }
+
+
+
+
+  verificationEmail(): void{
+    
+    var url =' http://localhost:3000/email';
+    this.http.post(url,{
+      email : this.email
+    })
+    .subscribe( () =>{
+      console.log(('hiiiiiiii'));
+      
+    })
+  }
+
+
+  comp(){
+    this.verificationEmail()
+    this.signup()
   }
 
 
