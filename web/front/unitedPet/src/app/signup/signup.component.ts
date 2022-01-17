@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
   phoneNumber :String= ''
   password:String= ''
   adress:String= ''
-  imageUrl:String= ''
+  imageUrl:String= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1uENsfHX_t2wf1PJ9YL2jw8XkWV7UXK7uiuT9WDHhlZbZthwUVQVjz1kwkCZp2njRQN4&usqp=CAU'
   constructor( private http:HttpClient ) { }
   // 
   ngOnInit(): void {
@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
     error:error=>{
       console.error(error)
     }})
+    console.log('work');
     
     
     
@@ -68,6 +69,27 @@ export class SignupComponent implements OnInit {
   Img(event:any){
     console.log(event.target.value)
     this.imageUrl= event.target.value
+  }
+
+
+
+
+  verificationEmail(): void{
+    
+    var url =' http://localhost:3000/email';
+    this.http.post(url,{
+      email : this.email
+    })
+    .subscribe( () =>{
+      console.log(('hiiiiiiii'));
+      
+    })
+  }
+
+
+  comp(){
+    this.verificationEmail()
+    this.signup()
   }
 
 

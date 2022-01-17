@@ -22,7 +22,7 @@ const routes: Routes = [
     component: ProfileComponent,
   },
   {
-    path: 's',
+    path: 'createStore',
     component: FormStoreComponent,
   },
   {
