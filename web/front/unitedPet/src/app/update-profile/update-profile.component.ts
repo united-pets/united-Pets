@@ -35,14 +35,28 @@ export class UpdateProfileComponent implements OnInit {
 
 
 
-
+  firstname(event:any){
+    this.firstName=event.target.value
+    }
+    lastname(event:any){
+    this.lastName=event.target.value
+    }
+    Email(event:any){
+    this.email=event.target.value
+    }
+    phonenumber(event:any){
+    this.phoneNumber=event.target.value
+    }
+    Adress(event:any){
+    this.adress=event.target.value
+    }
+    image(event:any){
+    this.imageUrl=event.target.value
+    }
   uplode(event : any ){
   this.path = event.target.files[0]
-  
-  // console.log(this.path);
-
   }
-
+  
   uploadThumbnail() {    
     this.af
     .upload('path' + Math.random() + this.path, this.path)
@@ -81,8 +95,9 @@ export class UpdateProfileComponent implements OnInit {
       .subscribe({
         next:Response =>{
           console.log('edited',Response)
+          localStorage.setItem('session',Response)
           this.router.navigateByUrl('profile')     
-        
+          
         },
         error:error =>console.log('err',error)
         
@@ -99,8 +114,8 @@ export class UpdateProfileComponent implements OnInit {
     // this.iduser = JSON.parse(y)[0].iduser;
     // console.log(y)
     // this.getuserData();
-  this.state= JSON.parse(localStorage.getItem('session')||'');
-
+  this.state = JSON.parse(localStorage.getItem('session')||'');
+  
   }
 
       

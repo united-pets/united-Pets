@@ -12,8 +12,7 @@ export class SignupComponent implements OnInit {
   phoneNumber :String= ''
   password:String= ''
   adress:String= ''
-  imageUrl:String= ''
-
+  imageUrl:String= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1uENsfHX_t2wf1PJ9YL2jw8XkWV7UXK7uiuT9WDHhlZbZthwUVQVjz1kwkCZp2njRQN4&usqp=CAU'
   constructor( private http:HttpClient ) { }
   // 
   ngOnInit(): void {

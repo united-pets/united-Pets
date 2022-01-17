@@ -23,14 +23,15 @@ var updateProfile = require('./routers/updateProfile.js')
 var userData = require('./routers/getuserData.js')
 var postItem = require ('./routers/postItem')
 var postStore = require('./routers/postStore')
-
+var getstoreItem=require('./routers/getStorItem')
 var post = require('./routers/posts.js');
 var pets = require('./routers/pets.js')
  
 var Email = require('./routers/Email.js')
 
+app.use("/",getstoreItem)
 app.use("/",test);
-app.use("/items",items);
+app.use("/",items);
 app.use("/",signup);
 app.use("/",login);
 app.use("/",updateProfile);

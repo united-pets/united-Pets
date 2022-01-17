@@ -14,6 +14,7 @@ taxRegistrationNumbzerImage='';
 constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+  
   }
 onChangeStoreName(event:any){
   this.storeName = event.target.value
@@ -30,20 +31,20 @@ onChangetaxRegistrationNumbzerImage(event:any){
 
 formStore(){
   let y = localStorage.getItem('session') as string;
-let storeForm = {
+  let storeForm = {
   user_iduser : JSON.parse(y).iduser ,
-storeName :this.storeName,
-storeLogo :this.storeLogo,
-taxRegistrationNumber :this.taxRegistrationNumber,
-taxRegistrationNumbzerImage: this.taxRegistrationNumbzerImage
-}
-  this.http.post('http://localhost:3000/form-store', storeForm )
-    .subscribe({next:((Response:any)=>{
-     console.log(Response)
-    }),
-    error:error=>{
-      console.error(error)
-    }})
-}
+  storeName :this.storeName,
+  storeLogo :this.storeLogo,
+  taxRegistrationNumber :this.taxRegistrationNumber,
+  taxRegistrationNumbzerImage: this.taxRegistrationNumbzerImage
+  }
+    this.http.post('http://localhost:3000/form-store', storeForm )
+      .subscribe({next:((Response:any)=>{
+        localStorage.setItem("store", JSON.stringify(Response))
+      }),
+      error:error=>{
+        console.error(error)
+      }})
+  }
 }
 

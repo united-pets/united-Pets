@@ -8,9 +8,17 @@ module.exports={
                res.status(401).send(err)
            }else
            {
-               res.status(201).send(result);
+            var query = "SELECT * FROM `users` where `iduser`=? ";
+            db.query(query,[req.params.iduser],(err, result) => {
+              if(err){
+                  console.log(err);
+              }else{
+                  res.send(result)
+              }
+            });
+          }
            }
-       })
+       )
     
     }
 }
