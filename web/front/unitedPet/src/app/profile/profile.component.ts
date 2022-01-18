@@ -171,6 +171,7 @@ image2(event: any){
   console.log('ImageItem ===>',event.target.value);
   this.itemImage = event.target.value;
 }
+
 //store registration
 onChangeStoreName(event:any){
   this.storeName = event.target.value
@@ -254,5 +255,5 @@ error:error=>{
 error:error=>{
   console.error(error)
 }})
- }
+}
 }
