@@ -6173,7 +6173,7 @@ textarea.form-control {
 
 /*# sourceMappingURL=../css/style.css.map */
 .v{
-  display: grid;
+display: grid;
 grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(5, 1fr);
 grid-column-gap: 20px;
