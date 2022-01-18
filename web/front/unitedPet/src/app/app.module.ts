@@ -27,6 +27,7 @@ import { StoreComponent } from './store/store.component';
 import { AddPetsComponent } from './add-pets/add-pets.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { OnePostComponent } from './one-post/one-post.component';
+import { StoreMangerComponent } from './store-manger/store-manger.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { OnePostComponent } from './one-post/one-post.component';
     StoreComponent,
     AddPetsComponent,
     UpdatePostComponent,
-    OnePostComponent
+    OnePostComponent,
+    StoreMangerComponent
   ],
   imports: [
     BrowserModule,

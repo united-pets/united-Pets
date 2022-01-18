@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@types/stripe-v3": "^3.1.26",
+    "nodemailer": "^6.7.2",
+    "stripe-angular": "^1.7.0"
+  }
+}

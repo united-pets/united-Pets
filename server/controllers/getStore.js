@@ -1,8 +1,8 @@
 var db = require("../database/index.js")
 module.exports={
-    GetAll: (req, res) => {
+    GetStore: (req, res) => {
         db.query(
-            "SELECT * FROM `Items` INNER JOIN `Stores` ON `Store_idStore` = ?",[req.params.Store_idStore],
+            "SELECT * FROM `Stores` INNER JOIN `users` ON `user_iduser` = ?",[req.params.user_iduser],
             (err, result) => {
                 if (err) {
                     console.log(err);

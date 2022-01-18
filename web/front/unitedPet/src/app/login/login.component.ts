@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       password:this.password
     }
     console.log(user)
-    this.http.post('http://localhost:3000/login',user ).subscribe({next:((Response:any)=>{
+    this.http.post('http://localhost:3000/login', user ).subscribe({next:((Response:any)=>{
       // console.log(Response)
       this.state = Response[0]
       console.log(this.state);
