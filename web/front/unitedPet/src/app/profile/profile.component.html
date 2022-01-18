@@ -82,48 +82,4 @@
                 </div>
             </div>
         </div>
-        <div class="container rounded bg-white mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Add an Item</h4>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Item Name</label><input type="text" class="form-control"
-                                placeholder="enter store name" 
-                                (change) ="onChangeName($event)"
-                                value=""></div>
-                            
-                                <div class="col-md-12"><label class="labels">Item Image</label><input type="file" class="form-control"(change)="image2($event)"  (change)="upload($event)" >
-                                    <button  (click)="uploadImage2()">upload my image </button>
-                                </div>
-                            
-                            <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
-                                 placeholder="enter text registration number" value=""
-                                 (change) ="onChangePrice($event)"></div>
-                
-                                 <div class="col-md-12"><label class="labels">Item Description</label><input type="text"
-                                     class="form-control"
-                                     (change) ="onChangeDescription($event)"
-                                      ></div>
-                            
-                                      <div class="col-md-12"><label class="labels">Category</label><input type="text" 
-                                        class="form-control"
-                                        (change) ="onChangeCategory($event)"
-                                        ></div>
-        
-                        <div class="col-md-12"><label class="labels">Quantity</label><input type="number" 
-                            class="form-control" 
-                            (change) ="onChangeQuantity($event)"
-                            ></div>
-                        </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" 
-                            type="button"
-                            (click)="postAddItem()"
-                            >Add</button></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+    </div>
