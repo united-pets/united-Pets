@@ -40,10 +40,10 @@ export class StoreMangerComponent implements OnInit {
   get(){
     let y = localStorage.getItem('store') as string
    
-      let user_iduser = JSON.parse(y)[0].idStore
-    this.http.get(`http://localhost:3000/storeItem`, user_iduser)
+      let Store_idStore = JSON.parse(y)[0].idStore
+    this.http.get(`http://localhost:3000/storeItem/${Store_idStore}`)
   .subscribe({next:((Response:any)=>{
-       console.log(Response)
+       console.log('hhhh',Response)
   }),
   error:error=>{
     console.error(error)
