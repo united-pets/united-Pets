@@ -29,9 +29,12 @@
 
         <div class="profile_info">
             <h1> {{state.firstName}} {{state.lastName}} </h1>
-            <p> {{state.phoneNumber}} ,{{state.email}} <a  [routerLink]="['/update-profile']">Edit </a></p>
+            <p> {{state.phoneNumber}} ,{{state.email}}
+                 <a  [routerLink]="['/update-profile']">
+                     Edit 
+            </a>
+            </p>
         </div>
-
     </div>
 
     <div class="flex justify-between lg:border-t border-gray-100 flex-col-reverse lg:flex-row pt-2">
@@ -75,7 +78,7 @@
                         
                         <div class="mt-5 text-center">
                             <button (click)="makePayment(20)" (click)="formStore()"  id="pay" class="btn btn-danger btn-block">Pay $20</button>
-                            <button class="btn btn-primary profile-button" [routerLink]="['/StoreManger']"  type="button">
+                            <button class="btn btn-primary profile-button"  [routerLink]="['/StoreManger']"  type="button">
                             Send
                         </button>
                         </div>

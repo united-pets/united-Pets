@@ -9,7 +9,8 @@ import { AngularFireStorage}from '@angular/fire/compat/storage'
   styleUrls: ['./store-manger.component.css']
 })
 export class StoreMangerComponent implements OnInit {
- 
+  storeName = ''
+  storeLogo = ''
   itemName ='';
   itemImage = '';
   itemPrice = '';
@@ -29,10 +30,24 @@ export class StoreMangerComponent implements OnInit {
     console.log(this.state);
   }
   state: any = {}
-
+  storeForm : any ={}
   ngOnInit(): void {
     // this.getItems()
     this.state= JSON.parse(localStorage.getItem('session')||'');
+    this.get()
+  }
+  
+  get(){
+    let y = localStorage.getItem('store') as string
+   
+      let user_iduser = JSON.parse(y)[0].idStore
+    this.http.get(`http://localhost:3000/storeItem`, user_iduser)
+  .subscribe({next:((Response:any)=>{
+       console.log(Response)
+  }),
+  error:error=>{
+    console.error(error)
+  }})
   }
 
   //add item
