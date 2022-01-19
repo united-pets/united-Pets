@@ -26,18 +26,19 @@ export class StoreMangerComponent implements OnInit {
      private http : HttpClient,
      private af: AngularFireStorage
   ){}
+  Store :any =[]
   state: any = {}
   storeForm : any ={}
   ngOnInit(): void {
     this.state = JSON.parse(localStorage.getItem('session')||'');
     this.get()
-    // this.getStoreInformations()
+    this.getStoreInformations()
   }
   
   get(){
     let y = localStorage.getItem('store') as string
    
-      let Store_idStore = JSON.parse(y)[0].idStore
+      let Store_idStore = JSON.parse(y).idStore
     this.http.get(`http://localhost:3000/storeItem/${Store_idStore}`)
   .subscribe({next:((Response:any)=>{
        console.log('hhhh',Response)
@@ -47,18 +48,21 @@ export class StoreMangerComponent implements OnInit {
   }})
   }
 //get store informations
-// getStoreInformations(){
-//   let y = localStorage.getItem('session') as string
+    getStoreInformations(){
+  let y = localStorage.getItem('session') as string
    
-//   let user_iduser = JSON.parse(y)[0].iduser
-//   this.http.get(`http://localhost:3000/storeItem/${user_iduser}`).subscribe(
-//   {next:((Response:any)=>{
-//     console.log('lll',Response)
-// }),
-// error:error=>{
-//  console.error(error)
-// }})
-// }
+  let user_iduser = JSON.parse(y).iduser
+  this.http.get(`http://localhost:3000/getStore/${user_iduser}`).subscribe(
+  {next:((Response:any)=>{
+    console.log('hiiiiiiii',Response)
+    this.Store=Response;
+    console.log(this.Store);
+    
+  }),
+  error:error=>{
+ console.error(error)
+ }})
+}
   //add item
 onChangeName(event:any){
   this.itemName = event.target.value;

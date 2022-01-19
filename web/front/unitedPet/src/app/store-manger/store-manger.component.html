@@ -8,16 +8,16 @@
     </div>
   </section>
 
-    <div>
-        <img class="rounded-circle mt-5" width="150px" src={{storeLogo}}>
+    <div *ngFor="let Store of Store ">
+        <img class="rounded-circle mt-5" width="150px" src={{Store.StoreLogo}}>
         <h3>
-           hi {{storeName}}
+           hi {{Store.StoreName}}
         </h3>
         
 
     </div>
 
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded bg-white mt-5 mb-5"  >
     <div class="row">
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
