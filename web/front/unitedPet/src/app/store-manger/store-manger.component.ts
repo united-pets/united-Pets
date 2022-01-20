@@ -27,6 +27,7 @@ export class StoreMangerComponent implements OnInit {
      private af: AngularFireStorage
   ){}
   Store :any =[]
+  storeItem : any = []
   state: any = {}
   storeForm : any ={}
   ngOnInit(): void {
@@ -42,6 +43,9 @@ export class StoreMangerComponent implements OnInit {
     this.http.get(`http://localhost:3000/storeItem/${Store_idStore}`)
   .subscribe({next:((Response:any)=>{
        console.log('hhhh',Response)
+       this.storeItem = Response
+       console.log('aaaa', this.storeItem);
+       
   }),
   error:error=>{
     console.error(error)

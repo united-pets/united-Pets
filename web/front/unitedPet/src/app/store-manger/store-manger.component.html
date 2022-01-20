@@ -41,8 +41,9 @@
                          placeholder="enter text registration number" value=""
                          (change) ="onChangePrice($event)"></div>
         
-                         <div class="col-md-12"><label class="labels">Item Description</label><input type="text"
-                             class="form-control"
+                         <div class="col-md-12">
+                             <label class="labels">Item Description</label><input type="text"
+                             class="form-control" 
                              (change) ="onChangeDescription($event)"
                               ></div>
                     
@@ -68,4 +69,34 @@
             </button>
         </div>
     </div>
+    <div class="row" >
+      <div class="product" >
+        <div class="v" >
+          <div *ngFor="let storeItem of storeItem">
+            <div class="product-image"  >
+              
+              <div class="product-overlay">
+                <div class="add-to-cart">
+                  <a >add to cart</a>
+                </div>
+              </div>
+            </div>
+            <img class="rounded-circle mt-5" width="150px" src={{storeItem.itemImage}} >
+            <div class="product-description" >
+              <div class="product-title">
+             <a> name: {{storeItem.itemName}}</a><br/>
+              <a> Description: {{storeItem.itemDescription}} </a><br/>
+              <a>Category: {{storeItem.itemCategory}} </a><br/>
+           </div>
+           <div class="product-price">
+            <ins> price:{{storeItem.itemPrice}}$</ins>
+           </div> 
+       </div>
+      </div>
+      </div>
+    </div>
+    </div>
 </div>
+
+
+
