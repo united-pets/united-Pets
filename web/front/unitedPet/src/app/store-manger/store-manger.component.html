@@ -48,7 +48,7 @@
             <td><span class="badge badge-success">{{storeItem.ItemCategory}} </span></td>
             <td><img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} ></td>
 
-            <button class="btn btn-danger" (click)="delete($event)">delete</button>
+            <button class="btn btn-danger" (click)="delete(storeItem.idItems)">delete</button>
           </tr>
           </tbody>
         </table>

@@ -51,20 +51,20 @@ export class StoreMangerComponent implements OnInit {
     console.error(error)
   }})
   }
-  delete(event :any){
+  delete(idItems :any){
     // let y = localStorage.getItem('store') as string
    
       // let idItems = JSON.parse(y)[0].idStore
-      console.log(event);
+      console.log('idItem',idItems);
       
-      // this.http.delete(`http://localhost:3000/deleteItem/${idItems}`).subscribe({
-      //   next :((Response :any) =>{
-      //     console.log('deleteeeeeee',Response);
+      this.http.delete(`http://localhost:3000/deleteItem/${idItems}`).subscribe({
+        next :((Response :any) =>{
+          console.log('deleteeeeeee',Response);
           
-      //   }),
-      //   error : error =>{console.log(error);
-      //   }
-      // })
+        }),
+        error : error =>{console.log(error);
+        }
+      })
   }
  
  //get store informations
