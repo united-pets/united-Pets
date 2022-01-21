@@ -39,7 +39,7 @@ export class StoreMangerComponent implements OnInit {
   get(){
     let y = localStorage.getItem('store') as string
    
-      let Store_idStore = JSON.parse(y).idStore
+      let Store_idStore = JSON.parse(y)[0].idStore
     this.http.get(`http://localhost:3000/storeItem/${Store_idStore}`)
   .subscribe({next:((Response:any)=>{
        console.log('hhhh',Response)
@@ -51,8 +51,8 @@ export class StoreMangerComponent implements OnInit {
     console.error(error)
   }})
   }
-//get store informations
-    getStoreInformations(){
+ //get store informations
+  getStoreInformations(){
   let y = localStorage.getItem('session') as string
    
   let user_iduser = JSON.parse(y).iduser
@@ -61,34 +61,34 @@ export class StoreMangerComponent implements OnInit {
     console.log('hiiiiiiii',Response)
     this.Store=Response;
     console.log(this.Store);
-    
+    localStorage.setItem("store", JSON.stringify(Response))
   }),
   error:error=>{
- console.error(error)
- }})
-}
+   console.error(error)
+  }})
+ }
   //add item
-onChangeName(event:any){
+ onChangeName(event:any){
   this.itemName = event.target.value;
-}
-onChangeImage(event:any){
+ }
+ onChangeImage(event:any){
   this.itemImage = event.target.file;
-}
-onChangePrice(event:any){
+ }
+ onChangePrice(event:any){
   this.itemPrice = event.target.value;
-}
-onChangeDescription(event:any){
+ }
+ onChangeDescription(event:any){
   this.itemDescription = event.target.value;
-}
-onChangeCategory(event:any){
+ }
+ onChangeCategory(event:any){
   this.itemCategory = event.target.value;
-}
-onChangeQuantity(event:any){
+ }
+  onChangeQuantity(event:any){
   this.itemQuantity = event.target.value;
-}
+  }
 
-// send post request for adding Item to the db store 
-postAddItem(){
+ // send post request for adding Item to the db store 
+ postAddItem(){
   let y = localStorage.getItem('store') as string
   let item = {
     itemName :this.itemName,
@@ -122,28 +122,28 @@ postAddItem(){
   }})
   }
  //////
- upload(event: any) {
+ upload(event : any) {
   this.pathLogoStore = event.target.files[0];
   console.log(this.pathLogoStore)
-}
-uploadImage2() {
+ }
+ uploadImage2() {
   console.log('patheImageItem ===>',this.patheImageItem);
   
   this.af
     .upload('path' + Math.random() + this.patheImageItem, this.patheImageItem)
-    .then((response : any) => {
+    .then((response ) => {
       console.log('response1 :', response);
-      response.ref.getDownloadURL().then((res : any) => {
+      response.ref.getDownloadURL().then((res ) => {
         console.log(res);
         this.patheImageItem = res;
         this.itemImage=res
         console.log('hhhhh',this.itemImage)
       });
     });
-}
-image2(event: any){
+ }
+ image2(event: any){
   console.log('ImageItem ===>',event.target.value);
-  this.itemImage = event.target.value;
-}
+  this.itemImage = event.target.value; 
+ }
 
 }

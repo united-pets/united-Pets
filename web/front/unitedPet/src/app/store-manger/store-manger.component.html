@@ -9,14 +9,8 @@
   </section>
 
     <div *ngFor="let Store of Store ">
-        <img class="rounded-circle mt-5" width="150px" src={{Store.StoreLogo}}>
-        <h3>
-            {{Store.StoreName}}
-        </h3>
-        
-
+        <img class="rounded-circle mt-5" id="img" width="70px" src={{Store.StoreLogo}}> <h3 id="h3"> {{Store.StoreName}} </h3>     
     </div>
-
 <div class="container rounded bg-white mt-5 mb-5"  >
     <div class="row">
         <div class="col-md-5 border-right">
@@ -30,66 +24,68 @@
                         placeholder="enter store name" 
                         (change) ="onChangeName($event)"
                         value=""></div>
-                    
                         <div class="col-md-12"><label class="labels">
                             Item Image</label>
                             <input type="file" class="form-control"(change)="image2($event)"  (change)="upload($event)" >
                             <button  (click)="uploadImage2()">upload my image </button>
                         </div>
-                    
                     <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
                          placeholder="enter text registration number" value=""
                          (change) ="onChangePrice($event)"></div>
-        
                          <div class="col-md-12">
-                             <label class="labels">Item Description</label><input type="text"
+                             <label class="labels">Item Description</label>
+                             <input type="text"
                              class="form-control" 
-                             (change) ="onChangeDescription($event)"
-                              ></div>
-                    
-                              <div class="col-md-12"><label class="labels">Category</label><input type="text" 
+                             (change) ="onChangeDescription($event)">
+                            </div>
+                              <div class="col-md-12">
+                                <label class="labels">Category</label>
+                                <input type="text" 
                                 class="form-control"
                                 (change) ="onChangeCategory($event)"
-                                ></div>
-
-                <div class="col-md-12"><label class="labels">Quantity</label><input type="number" 
+                                >
+                              </div>
+                <div class="col-md-12">
+                  <label class="labels">Quantity</label>
+                  <input type="number" 
                     class="form-control" 
                     (change) ="onChangeQuantity($event)"
-                    ></div>
+                    >
+                 </div>
                 </div>
                 <div class="mt-5 text-center">
                     <button class="btn btn-primary profile-button" type="button" (click)="postAddItem()" >
                     Add
                 </button>
                 </div>
-                
             </div>
-            <button class="btn btn-primary profile-button" type="button" [routerLink]="['/Store']" >
+            <!-- <button class="btn btn-primary profile-button" type="button" [routerLink]="['/Store']" >
                 see the Store
-            </button>
+            </button> -->
         </div>
     </div>
-    <div class="row" >
+    <div  id="aaa" >
       <div class="product" >
         <div class="v" >
           <div *ngFor="let storeItem of storeItem">
             <div class="product-image"  >
               
-              <div class="product-overlay">
+              <!-- <div class="product-overlay">
                 <div class="add-to-cart">
                   <a >add to cart</a>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <img class="rounded-circle mt-5" width="150px" src={{storeItem.itemImage}} >
+            <img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} >
             <div class="product-description" >
               <div class="product-title">
-             <a> name: {{storeItem.itemName}}</a><br/>
-              <a> Description: {{storeItem.itemDescription}} </a><br/>
-              <a>Category: {{storeItem.itemCategory}} </a><br/>
+             <a> name: {{storeItem.ItemName}}</a><br/>
+              <a> Description: {{storeItem.ItemDescription}} </a><br/>
+              <a>Category: {{storeItem.ItemCategory}} </a><br/>
            </div>
            <div class="product-price">
-            <ins> price:{{storeItem.itemPrice}}$</ins>
+            <ins> price:{{storeItem.ItemPrice}}$</ins>
+            <button>update</button> <button>delete</button>
            </div> 
        </div>
       </div>
