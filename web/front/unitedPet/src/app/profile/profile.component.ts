@@ -47,7 +47,7 @@ paymentHandler:any = null;
 
   
   ngOnInit(): void {
-    this.getItems()
+    // this.getItems()
   this.state= JSON.parse(localStorage.getItem('session')||'');
   
   this.invokeStripe();
@@ -223,37 +223,37 @@ onChangeQuantity(event:any){
   this.itemQuantity = event.target.value;
 }
 // send post request for adding Item to the db store 
-postAddItem(){
-let y = localStorage.getItem('store') as string
-let item = {
-  itemName :this.itemName,
-  itemImage :this.itemImage,
-  itemPrice :this.itemPrice,
-  itemDescription: this.itemDescription,
-  itemCategory: this.itemCategory,
-  itemQuantity: this.itemQuantity,
-  Store_idStore: JSON.parse(y)[0].idStore,
-}
-this.http.post('http://localhost:3000/add-items-to-store',item )
-.subscribe({next:((Response:any)=>{
-     console.log(Response)
-}),
-error:error=>{
-  console.error(error)
-}})
- }
+// postAddItem(){
+// let y = localStorage.getItem('store') as string
+// let item = {
+//   itemName :this.itemName,
+//   itemImage :this.itemImage,
+//   itemPrice :this.itemPrice,
+//   itemDescription: this.itemDescription,
+//   itemCategory: this.itemCategory,
+//   itemQuantity: this.itemQuantity,
+//   Store_idStore: JSON.parse(y).idStore,
+// }
+// this.http.post('http://localhost:3000/add-items-to-store',item )
+// .subscribe({next:((Response:any)=>{
+//      console.log(Response)
+// }),
+// error:error=>{
+//   console.error(error)
+// }})
+//  }
  //get Items
- getItems(){
-  let y = localStorage.getItem('store') as string
+//  getItems(){
+//   let y = localStorage.getItem('store') as string
  
-    let Store_idStore = JSON.parse(y)[0].idStore
+//     let Store_idStore = JSON.parse(y)[0].idStore
  
-  this.http.get(`http://localhost:3000/storeItem`, Store_idStore)
-.subscribe({next:((Response:any)=>{
-     console.log(Response)
-}),
-error:error=>{
-  console.error(error)
-}})
-}
+//   this.http.get(`http://localhost:3000/storeItem`, Store_idStore)
+// .subscribe({next:((Response:any)=>{
+//      console.log(Response)
+// }),
+// error:error=>{
+//   console.error(error)
+// }})
+// }
 }
