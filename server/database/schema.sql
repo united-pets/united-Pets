@@ -178,26 +178,19 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`pets` (
   `idpet` INT NOT NULL AUTO_INCREMENT,
   `petsName` VARCHAR(10) NULL DEFAULT NULL,
-  `age` VARCHAR(2) NULL DEFAULT NULL,
+  `age` VARCHAR(20) NULL DEFAULT NULL,
   `color` VARCHAR(10) NULL DEFAULT NULL,
   `race` VARCHAR(15) NULL DEFAULT NULL,
   `petImgUrl` VARCHAR(500) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
-  `Posts_idPosts` INT NOT NULL,
-  `Posts_user_iduser` INT NOT NULL,
-  PRIMARY KEY (`idpet`, `user_iduser`, `Posts_idPosts`, `Posts_user_iduser`),
+  PRIMARY KEY (`idpet`, `user_iduser`),
   INDEX `fk_pet_user1_idx` (`user_iduser` ASC) VISIBLE,
-  INDEX `fk_pets_Posts1_idx` (`Posts_idPosts` ASC, `Posts_user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_pet_user1`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pets_Posts1`
-    FOREIGN KEY (`Posts_idPosts` , `Posts_user_iduser`)
-    REFERENCES `mydb`.`Posts` (`idPosts` , `user_iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+    )
 ENGINE = InnoDB;
 
 
