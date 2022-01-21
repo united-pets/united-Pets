@@ -7,17 +7,57 @@
       </div>
     </div>
   </section>
+  <div *ngFor="let Store of Store ">
+    <img class="rounded-circle mt-5" id="img" width="70px" src={{Store.StoreLogo}}> <h3 id="h3"> {{Store.StoreName}} </h3>     
+</div>
+  <div class="card">
+    <div class="card-header border-transparent">
+      <h3 class="card-title">Latest Orders</h3>
 
-    <div>
-        <img class="rounded-circle mt-5" width="150px" src={{storeLogo}}>
-        <h3>
-           hi {{storeName}}
-        </h3>
-        
-
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
+  
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table m-0"  >
+          <thead>
+          <tr>
+            <!-- <th>Order ID</th> -->
+            <th>Item</th>
+            <th>ItemDescription</th>
+            <th>Price</th>
+            <th>ItemCategory</th>
+            <th>ItemImage</th>
 
-<div class="container rounded bg-white mt-5 mb-5">
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let storeItem of storeItem">
+            <!-- <td><a href="pages/examples/invoice.html">OR9842</a></td> -->
+            <td><span class="badge badge-success">{{storeItem.ItemName}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemDescription}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemPrice}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemCategory}} </span></td>
+            <td><img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} ></td>
+
+            <button class="btn btn-danger" (click)="delete(storeItem.idItems)">delete</button>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="container rounded bg-white mt-5 mb-5"  >
     <div class="row">
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -30,42 +70,71 @@
                         placeholder="enter store name" 
                         (change) ="onChangeName($event)"
                         value=""></div>
-                    
                         <div class="col-md-12"><label class="labels">
                             Item Image</label>
                             <input type="file" class="form-control"(change)="image2($event)"  (change)="upload($event)" >
                             <button  (click)="uploadImage2()">upload my image </button>
                         </div>
-                    
                     <div class="col-md-12"><label class="labels">Item Price</label><input type="number" class="form-control"
                          placeholder="enter text registration number" value=""
                          (change) ="onChangePrice($event)"></div>
-        
-                         <div class="col-md-12"><label class="labels">Item Description</label><input type="text"
-                             class="form-control"
-                             (change) ="onChangeDescription($event)"
-                              ></div>
-                    
-                              <div class="col-md-12"><label class="labels">Category</label><input type="text" 
+                         <div class="col-md-12">
+                             <label class="labels">Item Description</label>
+                             <input type="text"
+                             class="form-control" 
+                             (change) ="onChangeDescription($event)">
+                            </div>
+                              <div class="col-md-12">
+                                <label class="labels">Category</label>
+                                <input type="text" 
                                 class="form-control"
                                 (change) ="onChangeCategory($event)"
-                                ></div>
-
-                <div class="col-md-12"><label class="labels">Quantity</label><input type="number" 
+                                >
+                              </div>
+                <div class="col-md-12">
+                  <label class="labels">Quantity</label>
+                  <input type="number" 
                     class="form-control" 
                     (change) ="onChangeQuantity($event)"
-                    ></div>
+                    >
+                 </div>
                 </div>
                 <div class="mt-5 text-center">
                     <button class="btn btn-primary profile-button" type="button" (click)="postAddItem()" >
                     Add
                 </button>
                 </div>
-                
             </div>
-            <button class="btn btn-primary profile-button" type="button" [routerLink]="['/Store']" >
+            <!-- <button class="btn btn-primary profile-button" type="button" [routerLink]="['/Store']" >
                 see the Store
-            </button>
+            </button> -->
         </div>
     </div>
+    <!-- <div  id="aaa" >
+      <div class="product" >
+        <div class="v" >
+          <div *ngFor="let storeItem of storeItem">
+            <div class="product-image"  >
+              
+
+            </div>
+            <img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} >
+            <div class="product-description" >
+              <div class="product-title">
+             <a> name: {{storeItem.ItemName}}</a><br/>
+              <a> Description: {{storeItem.ItemDescription}} </a><br/>
+              <a>Category: {{storeItem.ItemCategory}} </a><br/>
+           </div>
+           <div class="product-price">
+            <ins> price:{{storeItem.ItemPrice}}$</ins>
+           <button (click)="delete($event)">delete</button>
+           </div> 
+       </div>
+      </div>
+      </div>
+    </div>
+    </div> -->
 </div>
+
+
+
