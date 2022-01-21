@@ -7,10 +7,56 @@
       </div>
     </div>
   </section>
+  <div *ngFor="let Store of Store ">
+    <img class="rounded-circle mt-5" id="img" width="70px" src={{Store.StoreLogo}}> <h3 id="h3"> {{Store.StoreName}} </h3>     
+</div>
+  <div class="card">
+    <div class="card-header border-transparent">
+      <h3 class="card-title">Latest Orders</h3>
 
-    <div *ngFor="let Store of Store ">
-        <img class="rounded-circle mt-5" id="img" width="70px" src={{Store.StoreLogo}}> <h3 id="h3"> {{Store.StoreName}} </h3>     
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
+  
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table m-0"  >
+          <thead>
+          <tr>
+            <!-- <th>Order ID</th> -->
+            <th>Item</th>
+            <th>ItemDescription</th>
+            <th>Price</th>
+            <th>ItemCategory</th>
+            <th>ItemImage</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let storeItem of storeItem">
+            <!-- <td><a href="pages/examples/invoice.html">OR9842</a></td> -->
+            <td><span class="badge badge-success">{{storeItem.ItemName}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemDescription}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemPrice}} </span></td>
+            <td><span class="badge badge-success">{{storeItem.ItemCategory}} </span></td>
+            <td><img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} ></td>
+
+            <button class="btn btn-danger" (click)="delete($event)">delete</button>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
 <div class="container rounded bg-white mt-5 mb-5"  >
     <div class="row">
         <div class="col-md-5 border-right">
@@ -64,17 +110,13 @@
             </button> -->
         </div>
     </div>
-    <div  id="aaa" >
+    <!-- <div  id="aaa" >
       <div class="product" >
         <div class="v" >
           <div *ngFor="let storeItem of storeItem">
             <div class="product-image"  >
               
-              <!-- <div class="product-overlay">
-                <div class="add-to-cart">
-                  <a >add to cart</a>
-                </div>
-              </div> -->
+
             </div>
             <img class="rounded-circle mt-5" width="150px" src={{storeItem.ItemImage}} >
             <div class="product-description" >
@@ -85,13 +127,13 @@
            </div>
            <div class="product-price">
             <ins> price:{{storeItem.ItemPrice}}$</ins>
-            <button>update</button> <button>delete</button>
+           <button (click)="delete($event)">delete</button>
            </div> 
        </div>
       </div>
       </div>
     </div>
-    </div>
+    </div> -->
 </div>
 
 

@@ -19,7 +19,7 @@ export class StoreMangerComponent implements OnInit {
   itemQuantity = '';
   pathLogoStore: String = '';
   patheImageItem : String = ''
-  
+  idItems :any
 
   constructor(
     private router : Router,
@@ -51,6 +51,22 @@ export class StoreMangerComponent implements OnInit {
     console.error(error)
   }})
   }
+  delete(event :any){
+    // let y = localStorage.getItem('store') as string
+   
+      // let idItems = JSON.parse(y)[0].idStore
+      console.log(event);
+      
+      // this.http.delete(`http://localhost:3000/deleteItem/${idItems}`).subscribe({
+      //   next :((Response :any) =>{
+      //     console.log('deleteeeeeee',Response);
+          
+      //   }),
+      //   error : error =>{console.log(error);
+      //   }
+      // })
+  }
+ 
  //get store informations
   getStoreInformations(){
   let y = localStorage.getItem('session') as string
