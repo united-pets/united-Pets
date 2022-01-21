@@ -44,14 +44,17 @@ race: String = '';
 // AnimalDescription: String = '';
 petImgUrl: String = '';
 path: string = '';
-show : boolean= false 
+showPetForm : boolean= false //create pet
+showStoreForm : boolean = false
+showPets : boolean= true //show pet
+
 
   constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
     console.log(this.state);
   }
   state: any = {}
-
+  getpets : any =[]
  
   
 
@@ -61,7 +64,7 @@ show : boolean= false
   this.state= JSON.parse(localStorage.getItem('session')||'');
   
   this.invokeStripe();
-
+    this.GetsPets()
 
   // console.log(this.state)
   // console.log(localStorage) ;
@@ -78,8 +81,37 @@ show : boolean= false
   // });
   
 }
- Show(){
-  this.show =! this.show
+ShowPetForm(){
+  this.showPetForm =true
+  this.showStoreForm =false
+  this.showPets =false
+
+ }
+ ShowStoreregistration(){
+this.showPetForm =false
+  this.showStoreForm =true
+  this.showPets =false
+
+ }
+ ShowPets(){
+this.showPetForm =false
+  this.showStoreForm =false
+  this.showPets =true
+ }
+
+ GetsPets(){
+  let y = localStorage.getItem('session') as string
+  let user_iduser = JSON.parse(y).iduser
+  this.http.get(`http://localhost:3000/GetPets/${user_iduser}`)
+  .subscribe({next:((Response:any)=>{
+    console.log('pets',Response)
+    this.getpets = Response
+    console.log('pets', this.getpets);
+    
+}),
+error:error=>{
+ console.error(error)
+}})
  }
 // this is the functions related to the stripe api for the payment 
 makePayment(amount:any) {
@@ -112,9 +144,7 @@ invokeStripe() {
           alert('Payment has been successfull!');
         }
       });
-    }
-   
-      
+    }  
     window.document.body.appendChild(script);
   }
 }
@@ -147,8 +177,7 @@ image(event: any){
 // uplode from photos Tax Registration Image
 
 uploadImage1() {
-  // console.log('pathRegistration======>',this.pathRegistration);
-  
+ 
   this.af
     .upload('path' + Math.random() + this.pathRegistration, this.pathRegistration)
     .then((response : any) => {
