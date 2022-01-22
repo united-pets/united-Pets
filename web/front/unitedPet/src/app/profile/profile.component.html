@@ -6,7 +6,7 @@
  <div class="profile user-profile">
   
     <div class="profiles_banner">
-        <img src={{state.imageUrl}} alt="">
+        <!-- <img src={{state.imageUrl}} alt=""> -->
         <div class="profile_action absolute bottom-0 right-0 space-x-1.5 p-3 text-sm z-50 hidden lg:flex">
           <a href="#" class="flex items-center justify-center h-8 px-3 rounded-md bg-gray-700 bg-opacity-70 text-white space-x-1.5"> 
               <span> Crop  </span>
@@ -18,6 +18,7 @@
       </div>
     </div>
     <div class="profiles_content" >
+        
 
         <div class="profile_avatar">
             <div class="profile_avatar_holder"> 
@@ -40,13 +41,65 @@
     <div class="flex justify-between lg:border-t border-gray-100 flex-col-reverse lg:flex-row pt-2">
         <nav class="responsive-nav pl-3">
             <ul  uk-switcher="connect: #timeline-tab; animation: uk-animation-fade">
-                <li><a href="hello">your pets</a ></li>
-                
-                <li><a href="#">Store</a></li>
+                <li><a (click)= 'ShowPetForm()'   > Add Your Pets</a ></li>
+                <li><a (click)= 'ShowStoreregistration()'  >Store</a></li>
+                <li><a (click)= 'ShowPets()'  >My Pets</a></li>
 
             </ul>
         </nav>
-        <div class="container rounded bg-white mt-5 mb-5">
+        <div *ngIf= 'showPets' class="pets">
+        <div *ngFor="let pet of getpets " >
+            <h5>{{pet.petsName}}</h5><h5>{{pet.age}}</h5><h5>{{pet.race}}</h5>
+            <img src={{pet.petImgUrl}} alt="">
+        </div>
+        </div>
+        <div class="container" *ngIf= 'showPetForm'>
+            <div class="row">
+                
+                <div class="col-md-8 col-md-offset-2">
+                    
+                    <h1>Create post for your pets </h1>
+                    
+                    <form action="" method="POST">
+                        
+                        <div class="form-group has-error">
+                            <label for="slug">name of your pets <span class="require"></span> </label>
+                            <input (change)="name($event)" type="text" placeholder="put the name" name="slug" />
+                       
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">age for ytour pets <span class="require"></span></label>
+                            <input (change)="Age($event)" type="text" placeholder="put the age exp : 12 months" name="title" />
+                        </div>
+                        <div class="form-group">
+                            <label for="title">race for ytour pets <span class="require"></span></label>
+                            <input (change)="Race($event)"  type="text"  placeholder="put the race of your pets " name="title" />
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea (change)="description($event)" rows="5" class="form-control" name="description" ></textarea>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="title">img for ytour pets <span class="require"></span></label>
+                            <input (change)="imagee($event)"  (change)="upload($event)" type="file" class="form-control"   name="title" />
+                        </div>
+                        <button  (click)="uploadImagee()">upload my image </button>
+        
+                       
+                        
+                        <div class="form-group">
+                            <button type="submit" (click)=" addpets()" class="btn btn-danger">
+                                Create
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        <div class="container rounded bg-white mt-5 mb-5" *ngIf= 'showStoreForm'>
             <div class="row">
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
