@@ -31,7 +31,8 @@ var GetsPets = require('./routers/GetPets.js')
  
 var Email = require('./routers/Email.js')
 var getStore = require('./routers/getStore.js')
-
+var PostMobile = require('./routers/postsMobile.js')
+app.use('/',PostMobile)
 app.use('/',GetsPets)
 app.use("/",getStore)
 app.use("/",getstoreItem)
