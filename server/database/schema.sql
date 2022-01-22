@@ -76,7 +76,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
     FOREIGN KEY (`Store_idStore`)
     REFERENCES `mydb`.`Stores` (`idStore`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION 
+)
 ENGINE = InnoDB;
 
 
@@ -108,6 +109,24 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Posts`
 -- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`PostsMobile` (
+  `idPosts` INT NOT NULL AUTO_INCREMENT,
+  `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
+  `AnimalName` VARCHAR(255) NULL DEFAULT NULL,
+  `AnimalDescription` VARCHAR(1000) NULL DEFAULT NULL,
+  `latitude`  VARCHAR(30) NULL DEFAULT NULL,
+  `longitude`  VARCHAR(30) NULL DEFAULT NULL,
+  `user_iduser` INT NOT NULL,
+  PRIMARY KEY (`idPosts`, `user_iduser`),
+  INDEX `fk_Posts_user_idx` (`user_iduser` ASC) VISIBLE,
+  CONSTRAINT `fk_Posts_user`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `mydb`.`users` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+-- 
 CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
@@ -117,13 +136,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `user_iduser`),
   INDEX `fk_Posts_user_idx` (`user_iduser` ASC) VISIBLE,
-  CONSTRAINT `fk_Posts_user`
+  -- CONSTRAINT `fk_Posts_user`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`comments`
