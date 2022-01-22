@@ -36,12 +36,25 @@ patheImageItem : String = ''
 
 paymentHandler:any = null;
 // configure : any =null
+
+idpet : String = '';
+petsName: String = '';
+age: String = '';
+race: String = '';
+// AnimalDescription: String = '';
+petImgUrl: String = '';
+path: string = '';
+showPetForm : boolean= false //create pet
+showStoreForm : boolean = false
+showPets : boolean= true //show pet
+
+
   constructor(private router : Router, private http : HttpClient , private af: AngularFireStorage) {
     this.state = this.router.getCurrentNavigation()?.extras.state
     console.log(this.state);
   }
   state: any = {}
-
+  getpets : any =[]
  
   
 
@@ -51,7 +64,7 @@ paymentHandler:any = null;
   this.state= JSON.parse(localStorage.getItem('session')||'');
   
   this.invokeStripe();
-
+    this.GetsPets()
 
   // console.log(this.state)
   // console.log(localStorage) ;
@@ -68,6 +81,38 @@ paymentHandler:any = null;
   // });
   
 }
+ShowPetForm(){
+  this.showPetForm =true
+  this.showStoreForm =false
+  this.showPets =false
+
+ }
+ ShowStoreregistration(){
+this.showPetForm =false
+  this.showStoreForm =true
+  this.showPets =false
+
+ }
+ ShowPets(){
+this.showPetForm =false
+  this.showStoreForm =false
+  this.showPets =true
+ }
+
+ GetsPets(){
+  let y = localStorage.getItem('session') as string
+  let user_iduser = JSON.parse(y).iduser
+  this.http.get(`http://localhost:3000/GetPets/${user_iduser}`)
+  .subscribe({next:((Response:any)=>{
+    console.log('pets',Response)
+    this.getpets = Response
+    console.log('pets', this.getpets);
+    
+}),
+error:error=>{
+ console.error(error)
+}})
+ }
 // this is the functions related to the stripe api for the payment 
 makePayment(amount:any) {
   const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -99,9 +144,7 @@ invokeStripe() {
           alert('Payment has been successfull!');
         }
       });
-    }
-   
-      
+    }  
     window.document.body.appendChild(script);
   }
 }
@@ -112,6 +155,7 @@ upload(event: any) {
   this.pathLogoStore = event.target.files[0];
   console.log(this.pathLogoStore)
 }
+
 uploadImage() {
   console.log(this.pathLogoStore);
   
@@ -133,8 +177,7 @@ image(event: any){
 // uplode from photos Tax Registration Image
 
 uploadImage1() {
-  // console.log('pathRegistration======>',this.pathRegistration);
-  
+ 
   this.af
     .upload('path' + Math.random() + this.pathRegistration, this.pathRegistration)
     .then((response : any) => {
@@ -222,38 +265,60 @@ onChangeCategory(event:any){
 onChangeQuantity(event:any){
   this.itemQuantity = event.target.value;
 }
-// send post request for adding Item to the db store 
-// postAddItem(){
-// let y = localStorage.getItem('store') as string
-// let item = {
-//   itemName :this.itemName,
-//   itemImage :this.itemImage,
-//   itemPrice :this.itemPrice,
-//   itemDescription: this.itemDescription,
-//   itemCategory: this.itemCategory,
-//   itemQuantity: this.itemQuantity,
-//   Store_idStore: JSON.parse(y).idStore,
+ ///////////////////////////////////////////////////////////////////////////// for add pets 
+ uploadImagee() {
+  console.log(this.path);
+  
+  this.af
+    .upload('path' + Math.random() + this.path, this.path)
+    .then((response) => {
+      console.log('response :', response);
+      response.ref.getDownloadURL().then((res) => {
+        console.log(res);
+        this.path = res;
+        this.petImgUrl=res
+      });
+    });
+}
+addpets(){
+  let y = localStorage.getItem('session') as string;
+  var post ={
+    user_iduser : JSON.parse(y).iduser ,
+    petsName : this.petsName,
+    age : this.age,
+    race : this.race,
+    // AnimalDescription : this.AnimalDescription,
+    petImgUrl : this.petImgUrl
+  }
+  console.log(post);
+  this.http.post('http://localhost:3000/addPets', post).subscribe({
+    next: (data) => {
+      console.log(data);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+  
+}
+name(event: any){
+  console.log(event.target.value);
+  this.petsName = event.target.value;
+}
+Age(event: any){
+  console.log(event.target.value);
+  this.age = event.target.value;
+}
+Race(event: any){
+  console.log(event.target.value);
+  this.race = event.target.value;
+}
+// description(event: any){
+//   console.log(event.target.value);
+//   this.AnimalDescription = event.target.value;
 // }
-// this.http.post('http://localhost:3000/add-items-to-store',item )
-// .subscribe({next:((Response:any)=>{
-//      console.log(Response)
-// }),
-// error:error=>{
-//   console.error(error)
-// }})
-//  }
- //get Items
-//  getItems(){
-//   let y = localStorage.getItem('store') as string
- 
-//     let Store_idStore = JSON.parse(y)[0].idStore
- 
-//   this.http.get(`http://localhost:3000/storeItem`, Store_idStore)
-// .subscribe({next:((Response:any)=>{
-//      console.log(Response)
-// }),
-// error:error=>{
-//   console.error(error)
-// }})
-// }
+imagee(event: any){
+  console.log(event.target.value);
+  this.petImgUrl = event.target.value;
+}
 }

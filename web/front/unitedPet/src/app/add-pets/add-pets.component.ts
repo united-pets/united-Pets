@@ -23,7 +23,7 @@ export class AddPetsComponent implements OnInit {
     this.path = event.target.files[0];
     console.log(this.path)
   }
-  uploadImage() {
+  uploadImagee() {
     console.log(this.path);
     
     this.af
@@ -74,7 +74,7 @@ export class AddPetsComponent implements OnInit {
   //   console.log(event.target.value);
   //   this.AnimalDescription = event.target.value;
   // }
-  image(event: any){
+  imagee(event: any){
     console.log(event.target.value);
     this.petImgUrl = event.target.value;
   }

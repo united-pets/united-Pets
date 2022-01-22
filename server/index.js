@@ -27,11 +27,12 @@ var getstoreItem=require('./routers/getStorItem')
 var post = require('./routers/posts.js');
 var pets = require('./routers/pets.js')
 
-
+var GetsPets = require('./routers/GetPets.js')
  
 var Email = require('./routers/Email.js')
 var getStore = require('./routers/getStore.js')
 
+app.use('/',GetsPets)
 app.use("/",getStore)
 app.use("/",getstoreItem)
 app.use("/",test);
