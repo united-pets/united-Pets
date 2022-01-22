@@ -118,6 +118,7 @@ export class StoreMangerComponent implements OnInit {
   this.http.post('http://localhost:3000/add-items-to-store',item )
   .subscribe({next:((Response:any)=>{
        console.log(Response)
+       this.get()
   }),
   error:error=>{
     console.error(error)
@@ -139,8 +140,8 @@ export class StoreMangerComponent implements OnInit {
   }
  //////
  upload(event : any) {
-  this.pathLogoStore = event.target.files[0];
-  console.log(this.pathLogoStore)
+  this.patheImageItem = event.target.files[0];
+  // console.log(this.pathLogoStore)
  }
  uploadImage2() {
   console.log('patheImageItem ===>',this.patheImageItem);
@@ -151,9 +152,9 @@ export class StoreMangerComponent implements OnInit {
       console.log('response1 :', response);
       response.ref.getDownloadURL().then((res ) => {
         console.log(res);
-        this.patheImageItem = res;
+        // this.patheImageItem = res;
         this.itemImage=res
-        console.log('hhhhh',this.itemImage)
+        // console.log('hhhhh',this.itemImage)
       });
     });
  }

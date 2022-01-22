@@ -29,9 +29,9 @@ itemCategory='';
 itemQuantity = '';
 pathLogoStore: String = '';
 pathRegistration : String = ''
-LogoStore: String = '';
+// LogoStore: String = '';
 ImageRegistration : String = '';
-ImageItem : String = '';
+// ImageItem : String = '';
 patheImageItem : String = ''
 
 paymentHandler:any = null;
@@ -152,8 +152,12 @@ invokeStripe() {
   
 // uplode from photos Store Logo
 upload(event: any) {
-  this.pathLogoStore = event.target.files[0];
   console.log(this.pathLogoStore)
+  this.pathRegistration = event.target.files[0]
+  console.log(this.pathRegistration);
+  this.path = event.target.files[0]
+
+  
 }
 
 uploadImage() {
@@ -170,10 +174,10 @@ uploadImage() {
       });
     });
 }
-image(event: any){
-  console.log(event.target.value);
-  this.storeLogo = event.target.value;
-}
+// image(event: any){
+//   console.log(event.target.value);
+//   this.storeLogo = event.target.value;
+// }
 // uplode from photos Tax Registration Image
 
 uploadImage1() {
@@ -221,6 +225,7 @@ onChangeStoreName(event:any){
 }
 onChangeStoreLogo(event:any){
   this.storeLogo = event.target.file
+  this.pathLogoStore = event.target.files[0]
 }
 onChangetaxRegistrationNumber(event:any){
   this.taxRegistrationNumber = event.target.value
@@ -275,7 +280,6 @@ onChangeQuantity(event:any){
       console.log('response :', response);
       response.ref.getDownloadURL().then((res) => {
         console.log(res);
-        this.path = res;
         this.petImgUrl=res
       });
     });
@@ -294,6 +298,7 @@ addpets(){
   this.http.post('http://localhost:3000/addPets', post).subscribe({
     next: (data) => {
       console.log(data);
+      this.getpets.push(post)
     },
     error: (error) => {
       console.log(error);
@@ -320,5 +325,6 @@ Race(event: any){
 imagee(event: any){
   console.log(event.target.value);
   this.petImgUrl = event.target.value;
+  this.path = event.target.files[0]
 }
 }
