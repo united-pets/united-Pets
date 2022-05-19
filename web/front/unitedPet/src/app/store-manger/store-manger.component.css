@@ -1982,7 +1982,8 @@ body {
           .team .team-detail .team-social ul li {
             display: inline-block;
             list-style-type: none;
-            float: left; }
+            float: left;
+         }
             .team .team-detail .team-social ul li:last-child a {
               margin-right: 0; }
             .team .team-detail .team-social ul li a {
@@ -6179,3 +6180,15 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   }
+  #h3{
+    
+    margin-left: 90px;
+    margin-bottom: 10px
+  }
+  #img{
+    margin-left: 20px;
+  }
+  #aaa{
+    width: 500px;
+  }
+  

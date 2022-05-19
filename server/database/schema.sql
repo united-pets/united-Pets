@@ -76,7 +76,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
     FOREIGN KEY (`Store_idStore`)
     REFERENCES `mydb`.`Stores` (`idStore`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION 
+)
 ENGINE = InnoDB;
 
 
@@ -108,6 +109,24 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Posts`
 -- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`PostsMobile` (
+  `idPosts` INT NOT NULL AUTO_INCREMENT,
+  `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
+  `AnimalName` VARCHAR(255) NULL DEFAULT NULL,
+  `AnimalDescription` VARCHAR(1000) NULL DEFAULT NULL,
+  `latitude`  VARCHAR(30) NULL DEFAULT NULL,
+  `longitude`  VARCHAR(30) NULL DEFAULT NULL,
+  `user_iduser` INT NOT NULL,
+  PRIMARY KEY (`idPosts`, `user_iduser`),
+  INDEX `fk_Posts_user_idx` (`user_iduser` ASC) VISIBLE,
+  CONSTRAINT `fk_Posts_user`
+    FOREIGN KEY (`user_iduser`)
+    REFERENCES `mydb`.`users` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
+-- 
 CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `AnimalImage` VARCHAR(500) NULL DEFAULT NULL,
@@ -117,13 +136,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `user_iduser`),
   INDEX `fk_Posts_user_idx` (`user_iduser` ASC) VISIBLE,
-  CONSTRAINT `fk_Posts_user`
+  -- CONSTRAINT `fk_Posts_user`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`comments`
@@ -178,26 +197,19 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`pets` (
   `idpet` INT NOT NULL AUTO_INCREMENT,
   `petsName` VARCHAR(10) NULL DEFAULT NULL,
-  `age` VARCHAR(2) NULL DEFAULT NULL,
+  `age` VARCHAR(20) NULL DEFAULT NULL,
   `color` VARCHAR(10) NULL DEFAULT NULL,
   `race` VARCHAR(15) NULL DEFAULT NULL,
   `petImgUrl` VARCHAR(500) NULL DEFAULT NULL,
   `user_iduser` INT NOT NULL,
-  `Posts_idPosts` INT NOT NULL,
-  `Posts_user_iduser` INT NOT NULL,
-  PRIMARY KEY (`idpet`, `user_iduser`, `Posts_idPosts`, `Posts_user_iduser`),
+  PRIMARY KEY (`idpet`, `user_iduser`),
   INDEX `fk_pet_user1_idx` (`user_iduser` ASC) VISIBLE,
-  INDEX `fk_pets_Posts1_idx` (`Posts_idPosts` ASC, `Posts_user_iduser` ASC) VISIBLE,
   CONSTRAINT `fk_pet_user1`
     FOREIGN KEY (`user_iduser`)
     REFERENCES `mydb`.`users` (`iduser`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pets_Posts1`
-    FOREIGN KEY (`Posts_idPosts` , `Posts_user_iduser`)
-    REFERENCES `mydb`.`Posts` (`idPosts` , `user_iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+    )
 ENGINE = InnoDB;
 
 

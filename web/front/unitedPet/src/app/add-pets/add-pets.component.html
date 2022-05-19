@@ -1,4 +1,12 @@
-
+<section class="header-inner bg-dark text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h1 class="inner-banner-title">Add your pets</h1>
+        </div>
+      </div>
+    </div>
+  </section>
 <div class="container">
 	<div class="row">
 	    
@@ -10,17 +18,17 @@
     		    
     		    <div class="form-group has-error">
     		        <label for="slug">name of your pets <span class="require"></span> </label>
-    		        <input (change)="name($event)" type="text" class="form-control" placeholder="put the name" name="slug" />
+    		        <input (change)="name($event)" type="text" placeholder="put the name" name="slug" />
     		   
     		    </div>
     		    
     		    <div class="form-group">
     		        <label for="title">age for ytour pets <span class="require"></span></label>
-    		        <input (change)="Age($event)" type="text" class="form-control" placeholder="put the age exp : 12 months" name="title" />
+    		        <input (change)="Age($event)" type="text" placeholder="put the age exp : 12 months" name="title" />
     		    </div>
                 <div class="form-group">
     		        <label for="title">race for ytour pets <span class="require"></span></label>
-    		        <input (change)="Race($event)"  type="text" class="form-control" placeholder="put the race of your pets " name="title" />
+    		        <input (change)="Race($event)"  type="text"  placeholder="put the race of your pets " name="title" />
     		    </div>
     		    <!-- <div class="form-group">
     		        <label for="description">Description</label>
@@ -28,9 +36,9 @@
     		    </div> -->
                 <div class="form-group">
     		        <label for="title">img for ytour pets <span class="require"></span></label>
-    		        <input (change)="image($event)"  (change)="upload($event)" type="file" class="form-control"   name="title" />
+    		        <input (change)="imagee($event)"  (change)="upload($event)" type="file" class="form-control"   name="title" />
     		    </div>
-                <button  (click)="uploadImage()">upload my image </button>
+                <button  (click)="uploadImagee()">upload my image </button>
 
     		   
     		    
